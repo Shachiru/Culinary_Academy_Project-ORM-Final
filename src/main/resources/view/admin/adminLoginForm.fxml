@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminLoginFormController">
+   <children>
+      <ImageView fitHeight="700.0" fitWidth="500.0" opacity="0.78">
+         <image>
+            <Image url="@../../assets/img/chef-cooking-food-restaurant-kitchen.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="175.0" layoutY="14.0">
+         <image>
+            <Image url="@../../assets/img/Logo.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edf6ffb2" height="430.0" layoutX="30.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="440.0" />
+      <Text fill="#0f0f19" layoutX="93.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME ADMIN">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtAdminName" layoutX="94.0" layoutY="394.0" prefHeight="53.0" prefWidth="313.0" promptText="Enter Name" style="-fx-background-radius: 15;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtPassword" layoutX="94.0" layoutY="470.0" prefHeight="53.0" prefWidth="313.0" promptText="Password" style="-fx-background-radius: 15;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Hyperlink fx:id="hyperFP" layoutX="94.0" layoutY="543.0" onAction="#hlinkForgotPw" style="-fx-text-fill: black;" text="Forgot Password ?">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="hyperSignUp" layoutX="350.0" layoutY="543.0" onAction="#hlinkSignUp" style="-fx-text-fill: black;" text="Sign Up">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="94.0" layoutY="596.0" onAction="#btnLoginOnAction" prefHeight="53.0" prefWidth="313.0" style="-fx-background-color: #0f0f19; -fx-background-radius: 18;" text="LOGIN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
