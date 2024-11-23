@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import lk.ijse.util.Navigation;
+
+import java.io.IOException;
 
 public class AdminLoginFormController {
 
@@ -25,8 +28,8 @@ public class AdminLoginFormController {
     private PasswordField txtPassword;
 
     @FXML
-    void btnLoginOnAction(ActionEvent event) {
-
+    void btnLoginOnAction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("admin/adminGlobalForm.fxml", event);
     }
 
     @FXML
