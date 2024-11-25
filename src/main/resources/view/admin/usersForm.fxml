@@ -1,16 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminUsersFormController">
    <children>
-      <Text layoutX="569.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users">
+      <Text layoutX="140.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users Manage">
          <font>
-            <Font size="96.0" />
+            <Font name="Arial Bold" size="60.0" />
          </font>
       </Text>
+      <TextField fx:id="txtUserId" layoutX="140.0" layoutY="141.0" prefHeight="53.0" prefWidth="161.0" promptText="User ID : " style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUsername" layoutX="352.0" layoutY="141.0" prefHeight="53.0" prefWidth="379.0" promptText="User Name :" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="140.0" layoutY="243.0" prefHeight="53.0" prefWidth="591.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtMobile" layoutX="786.0" layoutY="141.0" prefHeight="53.0" prefWidth="379.0" promptText="Mobile Number" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtPassword" layoutX="786.0" layoutY="243.0" prefHeight="53.0" prefWidth="379.0" promptText="User Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </PasswordField>
+      <TextArea fx:id="txtAddress" layoutX="140.0" layoutY="333.0" prefHeight="88.0" prefWidth="591.0" promptText="Address" style="-fx-background-color: white; -fx-border-color: gray;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextArea>
+      <HBox alignment="CENTER" layoutX="786.0" layoutY="333.0" prefHeight="88.0" prefWidth="379.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <JFXButton fx:id="btnClear" onAction="#btnClearOnAction" ripplerFill="#233449" style="-fx-background-radius: 30;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../../assets/icon/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" onAction="#btnUpdateOnAction" ripplerFill="#233449" style="-fx-background-radius: 30;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../../assets/icon/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnSave" buttonType="RAISED" onAction="#btnSaveOnAction" ripplerFill="#233449" style="-fx-background-radius: 30;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../../assets/icon/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" onAction="#btnDeleteOnAction" ripplerFill="#233449" style="-fx-background-radius: 30;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../../assets/icon/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <effect>
+            <DropShadow height="4.0" offsetX="2.0" offsetY="3.0" radius="2.5" spread="0.4" width="8.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5055433511734009" blue="0.5055433511734009" opacity="0.6700000166893005" />
+               </color>
+            </DropShadow>
+         </effect>
+      </HBox>
+      <Label fx:id="userIdValidate" alignment="CENTER" layoutX="140.0" layoutY="199.0" prefHeight="17.0" prefWidth="161.0" />
+      <Label fx:id="UserNameValidate" alignment="CENTER" layoutX="352.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" />
+      <Label fx:id="UserMobileValidate" alignment="CENTER" layoutX="786.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" />
+      <Label fx:id="userEmailValidate" alignment="CENTER" layoutX="140.0" layoutY="298.0" prefHeight="17.0" prefWidth="591.0" />
+      <Label fx:id="userPasswordValidate" alignment="CENTER" layoutX="786.0" layoutY="298.0" prefHeight="17.0" prefWidth="379.0" />
+      <Label fx:id="userAddressValidate" alignment="CENTER" layoutX="140.0" layoutY="427.0" prefHeight="17.0" prefWidth="591.0" />
+      <TableView fx:id="tblUser" layoutX="140.0" layoutY="513.0" prefHeight="337.0" prefWidth="1031.0">
+         <columns>
+            <TableColumn fx:id="colUserId" prefWidth="112.0" text="ID" />
+            <TableColumn fx:id="colUserName" prefWidth="136.0" text="Name" />
+            <TableColumn fx:id="colPassword" prefWidth="129.0" text="Password" />
+            <TableColumn fx:id="colAddress" prefWidth="180.0" text="Address" />
+            <TableColumn fx:id="colMobile" prefWidth="175.0" text="Mobile" />
+            <TableColumn fx:id="colEmail" prefWidth="298.0" text="Email" />
+         </columns>
+      </TableView>
    </children>
 </Pane>

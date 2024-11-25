@@ -1,18 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminDashboardFormController">
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminDashboardFormController">
     <children>
-        <Text layoutX="473.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard"
-              textAlignment="CENTER">
+        <Text fill="#233449" layoutX="531.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" textAlignment="CENTER">
             <font>
-                <Font size="88.0"/>
+                <Font name="Arial Bold" size="60.0" />
             </font>
         </Text>
+      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="955.0" layoutY="25.0" opacity="0.61">
+         <image>
+            <Image url="@../../assets/img/chefdish.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f7ffff" height="280.0" layoutX="110.0" layoutY="495.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0">
+         <effect>
+            <DropShadow height="27.54" offsetX="1.0" offsetY="2.0" radius="13.1" width="26.86">
+               <color>
+                  <Color red="0.6111111044883728" green="0.6264619827270508" blue="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text fill="#233449" layoutX="184.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENTS">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f7ffff" height="280.0" layoutX="525.0" layoutY="495.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0">
+         <effect>
+            <DropShadow height="27.54" offsetX="1.0" offsetY="2.0" radius="13.1" width="26.86">
+               <color>
+                  <Color red="0.6111111044883728" green="0.6264619827270508" blue="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text fill="#233449" layoutX="552.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f7ffff" height="280.0" layoutX="949.0" layoutY="495.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0">
+         <effect>
+            <DropShadow height="27.54" offsetX="1.0" offsetY="2.0" radius="13.1" width="26.86">
+               <color>
+                  <Color red="0.6111111044883728" green="0.6264619827270508" blue="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Text fill="#233449" layoutX="1022.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROGRAMS">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="235.0" layoutY="569.0">
+         <image>
+            <Image url="@../../assets/icon/education.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1092.0" layoutY="569.0">
+         <image>
+            <Image url="@../../assets/icon/search-document.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="649.0" layoutY="569.0">
+         <image>
+            <Image url="@../../assets/icon/registered.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblStudentCount" alignment="CENTER" layoutX="225.0" layoutY="703.0" prefHeight="53.0" prefWidth="90.0" textFill="#233449">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRegisterCount" alignment="CENTER" layoutX="639.0" layoutY="703.0" prefHeight="53.0" prefWidth="90.0" textFill="#233449">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProgramCount" alignment="CENTER" layoutX="1082.0" layoutY="703.0" prefHeight="53.0" prefWidth="90.0" textFill="#233449">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f7ffff" height="280.0" layoutX="113.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="731.0">
+         <effect>
+            <DropShadow height="27.54" offsetX="1.0" offsetY="2.0" radius="13.1" width="26.86">
+               <color>
+                  <Color red="0.6111111044883728" green="0.6264619827270508" blue="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+      <Label fx:id="lblTime" layoutX="148.0" layoutY="178.0" textFill="#233449">
+         <font>
+            <Font name="Arial Bold" size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="150.0" layoutY="295.0" textFill="#233449">
+         <font>
+            <Font name="Arial Bold" size="50.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

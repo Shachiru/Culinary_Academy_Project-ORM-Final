@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentFormController">
+    <children>
+        <Text fill="#233449" layoutX="573.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student">
+            <font>
+                <Font name="Arial Bold" size="60.0" />
+            </font>
+        </Text>
+      <TextField fx:id="txtStudentName" layoutX="637.0" layoutY="257.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtAddress" layoutX="114.0" layoutY="257.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtContact" layoutX="637.0" layoutY="406.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtEmail" layoutX="114.0" layoutY="406.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Text layoutX="114.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblStudentID" layoutX="239.0" layoutY="140.0" prefHeight="23.0" prefWidth="299.0" text="S001">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Text layoutX="114.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Address:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="114.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Email:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="637.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="637.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Contact:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblStudent" layoutX="114.0" layoutY="535.0" onMouseClicked="#rowOnMouseClicked" prefHeight="320.0" prefWidth="1142.0" styleClass="font">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="104.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="269.0" text="NAME" />
+            <TableColumn fx:id="colAddress" prefWidth="208.0" text="ADDRESS" />
+            <TableColumn fx:id="colContact" prefWidth="203.0" text="CONTACT" />
+            <TableColumn fx:id="colEmail" prefWidth="357.0" text="EMAIL" />
+         </columns>
+      </TableView>
+      <VBox layoutX="1095.0" layoutY="210.0" prefHeight="230.0" prefWidth="107.0" spacing="10.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="btnSave" buttonType="RAISED" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="21.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="11.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="5.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="0.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="40.0" />
+         </padding>
+      </VBox>
+    </children>
+</Pane>
