@@ -75,7 +75,7 @@ public class AdminProgramFormController {
     }
 
     @FXML
-    void rowOnMouseClicked(MouseEvent event) {
+    void tableClick(MouseEvent event) {
 
     }
 

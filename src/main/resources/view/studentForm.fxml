@@ -20,10 +20,10 @@
                 <Font name="Arial Bold" size="60.0" />
             </font>
         </Text>
-      <TextField fx:id="txtStudentName" layoutX="114.0" layoutY="218.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtAddress" layoutX="634.0" layoutY="218.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtContact" layoutX="634.0" layoutY="372.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtEmail" layoutX="114.0" layoutY="372.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtStudentName" layoutX="114.0" layoutY="218.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtAddress" layoutX="634.0" layoutY="218.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtContact" layoutX="634.0" layoutY="372.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtEmail" layoutX="114.0" layoutY="372.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
       <Text layoutX="634.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Address:">
          <font>
             <Font name="Arial Bold" size="20.0" />
@@ -44,7 +44,7 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tblStudent" layoutX="114.0" layoutY="535.0" onMouseClicked="#rowOnMouseClicked" prefHeight="320.0" prefWidth="1142.0" styleClass="font">
+      <TableView fx:id="tblStudent" layoutX="114.0" layoutY="535.0" onMouseClicked="#tableClick" prefHeight="320.0" prefWidth="1142.0" styleClass="font">
          <columns>
             <TableColumn fx:id="colId" prefWidth="104.0" text="ID" />
             <TableColumn fx:id="colName" prefWidth="269.0" text="NAME" />

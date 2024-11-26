@@ -20,9 +20,9 @@
             <Font name="Arial Bold" size="60.0" />
          </font>
       </Text>
-      <TextField fx:id="txtProgramName" layoutX="124.0" layoutY="228.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtPrice" layoutX="626.0" layoutY="352.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtDuration" layoutX="124.0" layoutY="352.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtProgramName" layoutX="124.0" layoutY="228.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtPrice" layoutX="626.0" layoutY="352.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtDuration" layoutX="124.0" layoutY="352.0" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
       <Text layoutX="123.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration :">
          <font>
             <Font name="Arial Bold" size="20.0" />
@@ -38,7 +38,7 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tblProgram" layoutX="153.0" layoutY="518.0" onMouseClicked="#rowOnMouseClicked" prefHeight="344.0" prefWidth="960.0" styleClass="font">
+      <TableView fx:id="tblProgram" layoutX="153.0" layoutY="518.0" onMouseClicked="#tableClick" prefHeight="344.0" prefWidth="960.0" styleClass="font">
          <columns>
             <TableColumn fx:id="colId" prefWidth="104.0" text="ID" />
             <TableColumn fx:id="colName" prefWidth="364.0" text="NAME" />

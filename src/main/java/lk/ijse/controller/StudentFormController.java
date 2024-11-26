@@ -126,9 +126,9 @@ public class StudentFormController implements Initializable {
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
         if (txtStudentId.getText().isEmpty() || txtStudentName.getText().isEmpty() || txtAddress.getText().isEmpty(
-                ) || txtContact.getText().isEmpty() || txtEmail.getText().isEmpty()) {
+        ) || txtContact.getText().isEmpty() || txtEmail.getText().isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Please fill all the fields").show();
-        }else {
+        } else {
             String id = txtStudentId.getText();
             String name = txtStudentName.getText();
             String address = txtAddress.getText();
@@ -183,8 +183,16 @@ public class StudentFormController implements Initializable {
     }
 
     @FXML
-    void rowOnMouseClicked(MouseEvent event) {
+    void tableClick(MouseEvent event) {
+        TablePosition pos = tblStudent.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<StudentTM, ?>> columns = tblStudent.getColumns();
 
+        txtStudentId.setText(columns.get(0).getCellData(row).toString());
+        txtStudentName.setText(columns.get(1).getCellData(row).toString());
+        txtAddress.setText(columns.get(2).getCellData(row).toString());
+        txtContact.setText(columns.get(3).getCellData(row).toString());
+        txtEmail.setText(columns.get(4).getCellData(row).toString());
     }
 
     @FXML
