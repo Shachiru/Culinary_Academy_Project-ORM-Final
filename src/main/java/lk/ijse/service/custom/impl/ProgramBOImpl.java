@@ -1,31 +1,29 @@
 package lk.ijse.service.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
-import lk.ijse.dto.StudentDTO;
-import lk.ijse.entity.Student;
+import lk.ijse.dto.ProgramDTO;
+import lk.ijse.entity.Program;
 import lk.ijse.repository.DAOFactory;
-import lk.ijse.repository.custom.StudentDAO;
-import lk.ijse.service.custom.StudentBO;
-import org.hibernate.HibernateException;
+import lk.ijse.repository.custom.ProgramDAO;
+import lk.ijse.service.custom.ProgramBO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class StudentBOImpl implements StudentBO {
+public class ProgramBOImpl implements ProgramBO {
 
-    StudentDAO studentDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.StudentDAO);
+    ProgramDAO programDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ProgramDAO);
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO) {
+    public boolean saveProgram(ProgramDTO programDTO) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            studentDAO.setSession(session);
-            studentDAO.save(studentDTO.toEntity());
+            programDAO.setSession(session);
+            programDAO.save(programDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
@@ -38,13 +36,13 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean updateStudent(StudentDTO studentDTO) {
+    public boolean updateProgram(ProgramDTO programDTO) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            studentDAO.setSession(session);
-            studentDAO.update(studentDTO.toEntity());
+            programDAO.setSession(session);
+            programDAO.update(programDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
@@ -57,13 +55,13 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(StudentDTO studentDTO) {
+    public boolean deleteProgram(ProgramDTO programDTO) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try {
-            studentDAO.setSession(session);
-            studentDAO.delete(studentDTO.toEntity());
+            programDAO.setSession(session);
+            programDAO.delete(programDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
@@ -76,54 +74,53 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public ArrayList<StudentDTO> getAllStudents() throws SQLException {
+    public ArrayList<ProgramDTO> getAllPrograms() throws SQLException {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        studentDAO.setSession(session);
-        ArrayList<Student> students = null;
+        programDAO.setSession(session);
+        ArrayList<Program> programs = null;
         try {
-            students = studentDAO.getAll();
+            programs = programDAO.getAll();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        if (students == null) {
+        if (programs == null) {
             return new ArrayList<>();
         }
-        ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
-        for (Student student : students) {
-            studentDTOS.add(new StudentDTO(
-                    student.getId(),
-                    student.getName(),
-                    student.getAddress(),
-                    student.getContact(),
-                    student.getEmail()
+        ArrayList<ProgramDTO> programDTOS = new ArrayList<>();
+        for (Program program : programs) {
+            programDTOS.add(new ProgramDTO(
+                    program.getId(),
+                    program.getName(),
+                    program.getDuration(),
+                    program.getFee()
             ));
         }
         session.close();
-        return studentDTOS;
+        return programDTOS;
     }
 
     @Override
     public ArrayList<String> loadIds() throws SQLException {
         Session session = SessionFactoryConfig.getInstance().getSession();
-        studentDAO.setSession(session);
-        ArrayList<String> list = studentDAO.loadIds();
+        programDAO.setSession(session);
+        ArrayList<String> list = programDAO.loadIds();
         session.close();
         return list;
     }
 
     @Override
-    public String generateNextStudentId() throws Exception {
-        String lastId = studentDAO.getLastId();
+    public String generateNextProgramId() throws Exception {
+        String lastId = programDAO.getLastId();
         return incrementId(lastId);
     }
 
     private String incrementId(String lastId) {
         if (lastId == null) {
-            return "STU-0001";
+            return "PRO-0001";
         } else {
             int id = Integer.parseInt(lastId.split("-")[1]);
             id++;
-            return String.format("STU-%04d", id);
+            return String.format("PRO-%04d", id);
         }
     }
 }

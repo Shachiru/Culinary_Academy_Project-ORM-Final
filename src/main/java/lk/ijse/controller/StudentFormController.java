@@ -141,6 +141,7 @@ public class StudentFormController implements Initializable {
             if (saved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllStudents();
+                clearFields();
             }
         }
     }
@@ -161,6 +162,7 @@ public class StudentFormController implements Initializable {
                 obList.add(studentTM);
             }
             tblStudent.setItems(obList);
+            tblStudent.refresh();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
