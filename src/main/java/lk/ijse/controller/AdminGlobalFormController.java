@@ -49,7 +49,7 @@ public class AdminGlobalFormController implements Initializable {
 
     @FXML
     void btnProgramsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/programsForm.fxml");
+        Navigation.switchPaging(pagingPane, "programsForm.fxml");
     }
 
     @FXML

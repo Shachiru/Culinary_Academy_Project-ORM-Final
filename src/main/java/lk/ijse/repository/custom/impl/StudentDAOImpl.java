@@ -33,8 +33,8 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
         try {
-            List<Student> studentList = session.createNativeQuery("SELECT * FROM Student", Student.class).getResultList();
-            return (ArrayList<Student>) studentList;
+            List<Student> students = session.createNativeQuery("SELECT * FROM Student", Student.class).getResultList();
+            return (ArrayList<Student>) students;
         } catch (Exception e) {
             return null;
         } finally {

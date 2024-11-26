@@ -38,7 +38,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean updateStudent(StudentDTO studentDTO) throws Exception {
+    public boolean updateStudent(StudentDTO studentDTO) {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -48,7 +48,7 @@ public class StudentBOImpl implements StudentBO {
             transaction.commit();
             session.close();
             return true;
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
             e.printStackTrace();
@@ -57,7 +57,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(StudentDTO studentDTO) throws Exception {
+    public boolean deleteStudent(StudentDTO studentDTO) {
         Session session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -67,7 +67,7 @@ public class StudentBOImpl implements StudentBO {
             transaction.commit();
             session.close();
             return true;
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
             e.printStackTrace();
