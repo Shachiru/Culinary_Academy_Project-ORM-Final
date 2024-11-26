@@ -28,13 +28,13 @@ public class AdminProgramFormController {
     private TableColumn<?, ?> colDuration;
 
     @FXML
+    private TableColumn<?, ?> colFee;
+
+    @FXML
     private TableColumn<?, ?> colId;
 
     @FXML
     private TableColumn<?, ?> colName;
-
-    @FXML
-    private TableColumn<?, ?> colPrice;
 
     @FXML
     private Pane pagingPane;
@@ -46,7 +46,7 @@ public class AdminProgramFormController {
     private TextField txtDuration;
 
     @FXML
-    private TextField txtPrice;
+    private TextField txtFee;
 
     @FXML
     private TextField txtProgramId;
