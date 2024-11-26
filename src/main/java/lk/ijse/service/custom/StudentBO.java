@@ -17,7 +17,7 @@ public interface StudentBO extends SuperBO {
 
     ArrayList<StudentDTO> getAllStudents() throws SQLException;
 
-    boolean loadIds(String id) throws Exception;
+    ArrayList<String> loadIds() throws SQLException;
 
-    List<StudentDTO> findAllStudents();
+    String generateNextStudentId() throws Exception;
 }

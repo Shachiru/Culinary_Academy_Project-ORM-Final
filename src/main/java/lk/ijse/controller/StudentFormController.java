@@ -14,11 +14,9 @@ import javafx.scene.layout.Pane;
 import lk.ijse.dto.StudentDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.StudentBO;
-import lk.ijse.service.custom.impl.StudentBOImpl;
 import lk.ijse.tm.StudentTM;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -74,15 +72,29 @@ public class StudentFormController implements Initializable {
 
     StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.StudentBO);
 
-    @FXML
-    void btnClearOnAction(ActionEvent event) {
-        if (new Alert(Alert.AlertType.CONFIRMATION, "Do you want to clear the fields?", ButtonType.OK, ButtonType.CANCEL).showAndWait().filter(response -> response == ButtonType.OK).isPresent()) {
-            clearFields();
-            new Alert(Alert.AlertType.INFORMATION, "Cleared Successfully!").show();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        hoverText();
+        setCellValue();
+        loadAllStudents();
+        generateNextStudentId();
+    }
+
+    private void generateNextStudentId() {
+        try {
+            txtStudentId.setText(studentBO.generateNextStudentId());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        clearFields();
+    }
+
     private void clearFields() {
+        txtStudentId.clear();
         txtStudentName.clear();
         txtAddress.clear();
         txtContact.clear();
@@ -90,50 +102,37 @@ public class StudentFormController implements Initializable {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) throws Exception {
 
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
-        if (txtStudentId.getText().isEmpty() || txtStudentName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtContact.getText().isEmpty() || txtEmail.getText().isEmpty()) {
-            new Alert(Alert.AlertType.ERROR, "All fields are required!").show();
-        }else{
-            String id = txtStudentId.getText();
-            String name = txtStudentName.getText();
-            String address = txtAddress.getText();
-            String contact = txtContact.getText();
-            String email = txtEmail.getText();
 
-            StudentDTO studentDTO = new StudentDTO(id, name, address, contact, email);
-            boolean saved = studentBO.saveStudent(studentDTO);
-            if (saved) {
-                new Alert(Alert.AlertType.INFORMATION, "Saved Successfully!").show();
-                loadAllStudents();
-            }
-        }
     }
 
     private void loadAllStudents() {
         ObservableList<StudentTM> obList = FXCollections.observableArrayList();
         tblStudent.getItems().clear();
-
         try {
-            ArrayList<StudentDTO> list = studentBO.getAllStudents();
-            for (StudentDTO dto : list) {
-                StudentTM studentTM = new StudentTM(
-                        Long.parseLong(dto.getId()),
-                        dto.getName(),
-                        dto.getAddress(),
-                        dto.getContact(),
-                        dto.getEmail()
-                );
-                obList.add(studentTM);
-
+            List<StudentDTO> list = studentBO.getAllStudents();
+            if (list != null) {
+                for (StudentDTO dto : list) {
+                    StudentTM studentTM = new StudentTM(
+                            dto.getId(),
+                            dto.getName(),
+                            dto.getAddress(),
+                            dto.getContact(),
+                            dto.getEmail()
+                    );
+                    obList.add(studentTM);
+                }
+                tblStudent.setItems(obList);
+            } else {
+                System.out.println("Error");
             }
-            tblStudent.setItems(obList);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -165,13 +164,6 @@ public class StudentFormController implements Initializable {
     @FXML
     void txtNameOnKeyReleased(KeyEvent event) {
 
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        hoverText();
-        setCellValue();
-        loadAllStudents();
     }
 
     private void setCellValue() {

@@ -10,19 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
+
     private Session session;
 
     @Override
-    public void save(Student student) throws SQLException, ClassNotFoundException {
-        if (student == null) {
-            throw new NullPointerException("Student cannot be null");
-        }
-        Student existingStudent = session.get(Student.class, student.getId());
-        if (existingStudent != null) {
-            session.update(student);
-        } else {
-            session.save(student);
-        }
+    public boolean save(Student entity) throws SQLException, ClassNotFoundException {
+        session.save(entity);
+        return false;
     }
 
     @Override
