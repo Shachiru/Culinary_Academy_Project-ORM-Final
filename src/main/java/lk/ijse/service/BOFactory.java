@@ -2,6 +2,7 @@ package lk.ijse.service;
 
 import lk.ijse.service.custom.impl.ProgramBOImpl;
 import lk.ijse.service.custom.impl.StudentBOImpl;
+import lk.ijse.service.custom.impl.UserBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -14,7 +15,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        StudentBO, ProgramBO
+        StudentBO, ProgramBO, UserBO
     }
 
     public <T extends SuperBO> T getBO(BOFactory.BOTypes boType) {
@@ -23,6 +24,8 @@ public class BOFactory {
                 return (T) new StudentBOImpl();
             case ProgramBO:
                 return (T) new ProgramBOImpl();
+            case UserBO:
+                return (T) new UserBOImpl();
             default:
                 return null;
         }

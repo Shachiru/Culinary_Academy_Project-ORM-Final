@@ -69,7 +69,7 @@ public class AdminGlobalFormController implements Initializable {
 
     @FXML
     void btnUsersOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/usersForm.fxml");
+        Navigation.switchPaging(pagingPane, "usersForm.fxml");
     }
 
     @Override

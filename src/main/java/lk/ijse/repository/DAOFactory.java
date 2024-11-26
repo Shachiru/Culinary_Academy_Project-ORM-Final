@@ -2,6 +2,7 @@ package lk.ijse.repository;
 
 import lk.ijse.repository.custom.impl.ProgramDAOImpl;
 import lk.ijse.repository.custom.impl.StudentDAOImpl;
+import lk.ijse.repository.custom.impl.UserDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -14,7 +15,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        StudentDAO, ProgramDAO
+        StudentDAO, ProgramDAO, UserDAO
     }
 
     public <T extends SuperDAO> T getDAO(DAOTypes daoTypes) {
@@ -23,6 +24,8 @@ public class DAOFactory {
                 return (T) new StudentDAOImpl();
             case ProgramDAO:
                 return (T) new ProgramDAOImpl();
+            case UserDAO:
+                return (T) new UserDAOImpl();
             default:
                 return null;
         }

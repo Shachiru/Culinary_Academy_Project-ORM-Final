@@ -16,21 +16,21 @@ import javax.persistence.*;
 @Table(name = "User")
 public class User {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "user_name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "user_password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "user_address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "user_mobile")
+    @Column(name = "mobile")
     private String mobile;
 
-    @Column(name = "user_email")
+    @Column(name = "email")
     private String email;
 }

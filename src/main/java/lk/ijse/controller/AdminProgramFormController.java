@@ -138,7 +138,8 @@ public class AdminProgramFormController implements Initializable {
                         dto.getId(),
                         dto.getName(),
                         dto.getDuration(),
-                        dto.getFee());
+                        dto.getFee()
+                );
                 obList.add(programTM);
             }
             tblProgram.setItems(obList);
