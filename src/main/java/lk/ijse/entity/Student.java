@@ -13,22 +13,22 @@ import javax.persistence.*;
 @Entity
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "student")
+@Table(name = "Student")
 public class Student {
     @Id
-    @Column(name = "student_id")
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "student_name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "student_address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "student_contact")
+    @Column(name = "contact")
     private String contact;
 
-    @Column(name = "student_email")
+    @Column(name = "email")
     private String email;
 
 }

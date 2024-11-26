@@ -1,5 +1,6 @@
 package lk.ijse.config;
 
+import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -30,7 +31,7 @@ public class SessionFactoryConfig {
 
         sessionFactory = new Configuration()
                 .setProperties(properties)
-//                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Student.class)
 //                .addAnnotatedClass(Branch.class)
 //                .addAnnotatedClass(Book.class)
 //                .addAnnotatedClass(Admin.class)

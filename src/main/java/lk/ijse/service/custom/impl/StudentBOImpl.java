@@ -79,14 +79,17 @@ public class StudentBOImpl implements StudentBO {
     public ArrayList<StudentDTO> getAllStudents() throws SQLException {
         Session session = SessionFactoryConfig.getInstance().getSession();
         studentDAO.setSession(session);
-        ArrayList<Student> stList = null;
+        ArrayList<Student> students = null;
         try {
-            stList = studentDAO.getAll();
+            students = studentDAO.getAll();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        if (students == null) {
+            return new ArrayList<>();
+        }
         ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
-        for (Student student : stList) {
+        for (Student student : students) {
             studentDTOS.add(new StudentDTO(
                     student.getId(),
                     student.getName(),
