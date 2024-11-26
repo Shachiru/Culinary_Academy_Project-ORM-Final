@@ -188,21 +188,6 @@ public class StudentFormController implements Initializable {
     }
 
     @FXML
-    void txtAddressOnKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
-    void txtContactOnKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
-    void txtEmailOnKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
     void txtNameOnKeyReleased(KeyEvent event) {
 
     }

@@ -1,18 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminPragramFormController">
-    <children>
-        <Text layoutX="440.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programms">
-            <font>
-                <Font size="96.0"/>
-            </font>
-        </Text>
-    </children>
+<Pane fx:id="pagingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1369.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminProgramFormController">
+   <children>
+      <Text fill="#233449" layoutX="583.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programs">
+         <font>
+            <Font name="Arial Bold" size="60.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtProgramName" layoutX="124.0" layoutY="228.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtPrice" layoutX="626.0" layoutY="352.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtDuration" layoutX="124.0" layoutY="352.0"  prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Text layoutX="123.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration :">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="123.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Program Name:">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="626.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fee :">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblProgram" layoutX="153.0" layoutY="518.0" onMouseClicked="#rowOnMouseClicked" prefHeight="344.0" prefWidth="960.0" styleClass="font">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="104.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="364.0" text="NAME" />
+            <TableColumn fx:id="colDuration" prefWidth="269.0" text="DURATION" />
+            <TableColumn fx:id="colPrice" prefWidth="222.0" text="PRICE" />
+         </columns>
+      </TableView>
+      <VBox layoutX="1105.0" layoutY="220.0" prefHeight="230.0" prefWidth="107.0" spacing="10.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: white;">
+         <children>
+            <JFXButton fx:id="btnSave" buttonType="RAISED" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="21.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="11.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="5.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/clear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="0.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                     <image>
+                        <Image url="@../assets/icon/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="40.0" />
+         </padding>
+      </VBox>
+      <TextField fx:id="txtProgramId" layoutX="124.0" layoutY="140.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="141.0" promptText="Program ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </TextField>
+   </children>
 </Pane>
