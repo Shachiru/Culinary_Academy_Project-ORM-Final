@@ -112,28 +112,24 @@ public class StudentFormController implements Initializable {
     }
 
     private void loadAllStudents() {
-        ObservableList<StudentTM> obList = FXCollections.observableArrayList();
-        tblStudent.getItems().clear();
-        try {
-            List<StudentDTO> list = studentBO.getAllStudents();
-            if (list != null) {
-                for (StudentDTO dto : list) {
-                    StudentTM studentTM = new StudentTM(
-                            dto.getId(),
-                            dto.getName(),
-                            dto.getAddress(),
-                            dto.getContact(),
-                            dto.getEmail()
-                    );
-                    obList.add(studentTM);
-                }
-                tblStudent.setItems(obList);
-            } else {
-                System.out.println("Error");
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        ObservableList<StudentTM> obList = FXCollections.observableArrayList();
+//        tblStudent.getItems().clear();
+//        try {
+//            List<StudentDTO> list = studentBO.getAllStudents();
+//            for (StudentDTO dto : list) {
+//                StudentTM studentTM = new StudentTM(
+//                        dto.getId(),
+//                        dto.getName(),
+//                        dto.getAddress(),
+//                        dto.getContact(),
+//                        dto.getEmail()
+//                );
+//                obList.add(studentTM);
+//            }
+//            tblStudent.setItems(obList);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @FXML

@@ -20,7 +20,8 @@ public class DAOFactory {
         switch (daoTypes) {
             case StudentDAO:
                 return (T) new StudentDAOImpl();
+            default:
+                return null;
         }
-        return null;
     }
 }

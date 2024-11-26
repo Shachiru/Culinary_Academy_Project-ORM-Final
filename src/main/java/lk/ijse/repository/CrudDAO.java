@@ -17,4 +17,6 @@ public interface CrudDAO<T, ID> extends SuperDAO {
     ArrayList<ID> loadIds() throws SQLException;
 
     void setSession(Session session);
+
+    String getLastId() throws Exception;
 }

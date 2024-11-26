@@ -1,5 +1,6 @@
 package lk.ijse.repository.custom.impl;
 
+import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.entity.Student;
 import lk.ijse.repository.custom.StudentDAO;
 import org.hibernate.Session;
@@ -37,24 +38,34 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
             return null;
         } finally {
-            if (session != null) {
-                session.close();
-            }
+            session.close();
         }
     }
 
     @Override
     public ArrayList<String> loadIds() throws SQLException {
-        // Implement logic to load IDs from database
-        String sql = "SELECT id FROM Student";
-        Query query = session.createQuery(sql, String.class);
-        List<String> idList = query.getResultList();
-        return (ArrayList<String>) idList;
+       String sql = "SELECT S.id FROM Student AS S";
+       Query query = session.createQuery(sql);
+       List list = query.list();
+       return (ArrayList<String>) list;
     }
 
     @Override
     public void setSession(Session session) {
         this.session = session;
+    }
+
+    @Override
+    public String getLastId() throws Exception {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            String sql = "SELECT S.id FROM Student AS S ORDER BY S.id DESC";
+            Query<String> query = session.createQuery(sql, String.class);
+            query.setMaxResults(1);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

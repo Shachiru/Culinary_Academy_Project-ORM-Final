@@ -109,8 +109,8 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public String generateNextStudentId() {
-        String lastId = studentDAO.generateNextId();
+    public String generateNextStudentId() throws Exception {
+        String lastId = studentDAO.getLastId();
         return incrementId(lastId);
     }
 
