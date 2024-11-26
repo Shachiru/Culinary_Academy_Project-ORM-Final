@@ -5,6 +5,7 @@ import lk.ijse.service.SuperBO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface StudentBO extends SuperBO {
 
@@ -18,4 +19,5 @@ public interface StudentBO extends SuperBO {
 
     boolean loadIds(String id) throws Exception;
 
+    List<StudentDTO> findAllStudents();
 }

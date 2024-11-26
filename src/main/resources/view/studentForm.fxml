@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -21,36 +20,26 @@
                 <Font name="Arial Bold" size="60.0" />
             </font>
         </Text>
-      <TextField fx:id="txtStudentName" layoutX="637.0" layoutY="257.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtAddress" layoutX="114.0" layoutY="257.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtContact" layoutX="637.0" layoutY="406.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <TextField fx:id="txtEmail" layoutX="114.0" layoutY="406.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
-      <Text layoutX="114.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:">
+      <TextField fx:id="txtStudentName" layoutX="114.0" layoutY="218.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtAddress" layoutX="634.0" layoutY="218.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtContact" layoutX="634.0" layoutY="372.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <TextField fx:id="txtEmail" layoutX="114.0" layoutY="372.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="34.0" prefWidth="391.0" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;" />
+      <Text layoutX="634.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Address:">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lblStudentID" layoutX="239.0" layoutY="140.0" prefHeight="23.0" prefWidth="299.0" text="S001">
-         <font>
-            <Font name="Arial Bold" size="20.0" />
-         </font>
-      </Label>
-      <Text layoutX="114.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Address:">
+      <Text layoutX="113.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Email:">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="114.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Email:">
+      <Text layoutX="113.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name:">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <Text layoutX="637.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name:">
-         <font>
-            <Font name="Arial Bold" size="20.0" />
-         </font>
-      </Text>
-      <Text layoutX="637.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Contact:">
+      <Text layoutX="636.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Contact:">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -131,5 +120,10 @@
             <Insets left="40.0" />
          </padding>
       </VBox>
+      <TextField fx:id="txtStudentId" layoutX="114.0" layoutY="130.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="141.0" promptText="Student ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </TextField>
     </children>
 </Pane>
