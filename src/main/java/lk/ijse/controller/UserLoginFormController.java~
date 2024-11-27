@@ -6,11 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import lk.ijse.util.Navigation;
 
-import java.io.IOException;
-
-public class AdminLoginFormController {
+public class UserLoginFormController {
 
     @FXML
     private JFXButton btnLogin;
@@ -25,14 +22,14 @@ public class AdminLoginFormController {
     private Hyperlink hyperSignUp;
 
     @FXML
-    private TextField txtAdminName;
-
-    @FXML
     private PasswordField txtPassword;
 
     @FXML
-    void btnLoginOnAction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("admin/adminGlobalForm.fxml", event);
+    private TextField txtUsername;
+
+    @FXML
+    void btnLoginOnAction(ActionEvent event) {
+
     }
 
     @FXML
@@ -45,10 +42,11 @@ public class AdminLoginFormController {
 
     }
 
+
     @FXML
     void btnBackOnAction(ActionEvent event) {
-        btnBack.getScene().getWindow().hide();
-        Navigation.changeStage("/view/mainForm.fxml", "Main Form");
+        
     }
+
 
 }
