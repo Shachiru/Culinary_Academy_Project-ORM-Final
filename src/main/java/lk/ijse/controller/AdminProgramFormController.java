@@ -15,6 +15,7 @@ import lk.ijse.dto.ProgramDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
 import lk.ijse.tm.ProgramTM;
+import lk.ijse.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -48,6 +49,9 @@ public class AdminProgramFormController implements Initializable {
     private TableColumn<?, ?> colName;
 
     @FXML
+    private TableColumn<?, ?> colSeats;
+
+    @FXML
     private Pane pagingPane;
 
     @FXML
@@ -65,6 +69,24 @@ public class AdminProgramFormController implements Initializable {
     @FXML
     private TextField txtProgramName;
 
+    @FXML
+    private TextField txtProgramSeats;
+
+    @FXML
+    private Label prDurationValidate;
+
+    @FXML
+    private Label prFeeValidate;
+
+    @FXML
+    private Label prIdValidate;
+
+    @FXML
+    private Label prNameValidate;
+
+    @FXML
+    private Label prSeatValidate;
+
     ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
 
     @Override
@@ -79,6 +101,7 @@ public class AdminProgramFormController implements Initializable {
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colSeats.setCellValueFactory(new PropertyValueFactory<>("seats"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
     }
@@ -112,6 +135,7 @@ public class AdminProgramFormController implements Initializable {
     private void clearFields() {
         txtProgramId.clear();
         txtProgramName.clear();
+        txtProgramSeats.clear();
         txtDuration.clear();
         txtFee.clear();
     }
@@ -138,6 +162,7 @@ public class AdminProgramFormController implements Initializable {
                 ProgramTM programTM = new ProgramTM(
                         dto.getId(),
                         dto.getName(),
+                        dto.getSeats(),
                         dto.getDuration(),
                         dto.getFee()
                 );
@@ -152,16 +177,14 @@ public class AdminProgramFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
-        if (txtProgramId.getText().isEmpty() || txtProgramName.getText().isEmpty() || txtDuration.getText().isEmpty() || txtFee.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please fill all the fields").show();
-        } else {
+        if (validateInputFields()) {
             String id = txtProgramId.getText();
             String name = txtProgramName.getText();
+            String seats = txtProgramSeats.getText();
             String duration = txtDuration.getText();
             double fee = Double.parseDouble(txtFee.getText());
 
-            ProgramDTO programDTO = new ProgramDTO(id, name, duration, fee);
-
+            ProgramDTO programDTO = new ProgramDTO(id, name, seats, duration, fee);
             boolean saved = programBO.saveProgram(programDTO);
             if (saved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
@@ -172,14 +195,55 @@ public class AdminProgramFormController implements Initializable {
         }
     }
 
+    private boolean validateInputFields() {
+        boolean isValid = true;
+
+        if (!Validation.programIdValidate(txtProgramId.getText())) {
+            prIdValidate.setText("Invalid Program ID");
+            isValid = false;
+        } else {
+            prIdValidate.setText("");
+        }
+
+        if (!Validation.nameValidate(txtProgramName.getText())) {
+            prNameValidate.setText("Invalid Program Name");
+            isValid = false;
+        } else {
+            prNameValidate.setText("");
+        }
+
+        if (!Validation.qtyValidate(txtProgramSeats.getText())) {
+            prSeatValidate.setText("Invalid Seats");
+            isValid = false;
+        }else {
+            prSeatValidate.setText("");
+        }
+
+        if (!Validation.durationValidate(txtDuration.getText())) {
+            prDurationValidate.setText("Invalid Duration");
+            isValid = false;
+        } else {
+            prDurationValidate.setText("");
+        }
+
+        if (!Validation.feeValidate(txtFee.getText())) {
+            prFeeValidate.setText("Invalid Fee");
+            isValid = false;
+        } else {
+            prFeeValidate.setText("");
+        }
+        return isValid;
+    }
+
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws Exception {
         String id = txtProgramId.getText();
         String name = txtProgramName.getText();
+        String seats = txtProgramSeats.getText();
         String duration = txtDuration.getText();
         double fee = Double.parseDouble(txtFee.getText());
 
-        ProgramDTO programDTO = new ProgramDTO(id, name, duration, fee);
+        ProgramDTO programDTO = new ProgramDTO(id, name, seats, duration, fee);
         boolean updated = programBO.updateProgram(programDTO);
         if (updated) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully").show();
@@ -196,8 +260,9 @@ public class AdminProgramFormController implements Initializable {
 
         txtProgramId.setText(columns.get(0).getCellData(row).toString());
         txtProgramName.setText(columns.get(1).getCellData(row).toString());
-        txtDuration.setText(columns.get(2).getCellData(row).toString());
-        txtFee.setText(columns.get(3).getCellData(row).toString());
+        txtProgramSeats.setText(columns.get(2).getCellData(row).toString());
+        txtDuration.setText(columns.get(3).getCellData(row).toString());
+        txtFee.setText(columns.get(4).getCellData(row).toString());
     }
 
     @FXML

@@ -91,6 +91,7 @@ public class ProgramBOImpl implements ProgramBO {
             programDTOS.add(new ProgramDTO(
                     program.getId(),
                     program.getName(),
+                    program.getSeats(),
                     program.getDuration(),
                     program.getFee()
             ));

@@ -19,6 +19,13 @@ public class Validation {
         return matcher.matches();
     }
 
+    public static boolean programIdValidate(String programId) {
+        String programRegex = "^PRO-\\d{4}$";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programId);
+        return matcher.matches();
+    }
+
     public static boolean nameValidate(String name) {
         String nameRegex = "^[A-z\\s]{4,15}$";
         Pattern pattern = Pattern.compile(nameRegex);
@@ -51,6 +58,27 @@ public class Validation {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public static boolean qtyValidate(String qty) {
+        String programRegex = "^[1-9][0-9]*$";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(qty);
+        return matcher.matches();
+    }
+
+    public static boolean feeValidate(String fee) {
+        String priceRegex = "^(\\d+\\.?\\d{0,2})$";
+        Pattern pattern = Pattern.compile(priceRegex);
+        Matcher matcher = pattern.matcher(fee);
+        return matcher.matches();
+    }
+
+    public static boolean durationValidate(String duration) {
+        String durationMonthsRegex = "^(\\d+)(?:\\.?\\d{0,2})?$";
+        Pattern pattern = Pattern.compile(durationMonthsRegex);
+        Matcher matcher = pattern.matcher(duration);
         return matcher.matches();
     }
 }
