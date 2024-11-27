@@ -54,7 +54,7 @@ public class AdminUsersFormController implements Initializable {
     private TableView<UserTM> tblUser;
 
     @FXML
-    private TextArea txtAddress;
+    private TextField txtAddress;
 
     @FXML
     private TextField txtEmail;
@@ -175,6 +175,7 @@ public class AdminUsersFormController implements Initializable {
         if (deleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully").show();
             loadAllUsers();
+            clearFields();
         }
     }
 
@@ -200,6 +201,8 @@ public class AdminUsersFormController implements Initializable {
             if (saved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllUsers();
+                clearFields();
+                generateNextUserId();
             }
         }
     }
@@ -218,6 +221,7 @@ public class AdminUsersFormController implements Initializable {
         if (updated) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully").show();
             loadAllUsers();
+            clearFields();
         }
     }
 

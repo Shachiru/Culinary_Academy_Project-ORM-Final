@@ -119,6 +119,7 @@ public class StudentFormController implements Initializable {
         if (deleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully").show();
             loadAllStudents();
+            clearFields();
         }
     }
 
@@ -141,6 +142,7 @@ public class StudentFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllStudents();
                 clearFields();
+                generateNextStudentId();
             }
         }
     }
@@ -180,6 +182,7 @@ public class StudentFormController implements Initializable {
         if (updated) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully").show();
             loadAllStudents();
+            clearFields();
         }
     }
 

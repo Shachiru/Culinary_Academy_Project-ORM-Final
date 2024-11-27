@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -38,52 +39,24 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Text>
-      <TableView fx:id="tblProgram" layoutX="153.0" layoutY="518.0" onMouseClicked="#tableClick" prefHeight="344.0" prefWidth="960.0" styleClass="font">
+      <TableView fx:id="tblProgram" layoutX="153.0" layoutY="518.0" onMouseClicked="#tableClick" prefHeight="344.0" prefWidth="1083.0" styleClass="font">
          <columns>
             <TableColumn fx:id="colId" prefWidth="104.0" text="ID" />
-            <TableColumn fx:id="colName" prefWidth="364.0" text="NAME" />
-            <TableColumn fx:id="colDuration" prefWidth="269.0" text="DURATION" />
-            <TableColumn fx:id="colFee" prefWidth="222.0" text="Fee" />
+            <TableColumn fx:id="colName" prefWidth="424.0" text="NAME" />
+            <TableColumn fx:id="colDuration" prefWidth="327.0" text="DURATION" />
+            <TableColumn fx:id="colFee" prefWidth="227.0" text="Fee" />
          </columns>
       </TableView>
-      <VBox layoutX="1105.0" layoutY="220.0" prefHeight="230.0" prefWidth="107.0" spacing="10.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: white;">
+      <TextField fx:id="txtProgramId" layoutX="124.0" layoutY="140.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="141.0" promptText="Program ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </TextField>
+      <HBox alignment="CENTER" layoutX="857.0" layoutY="441.0" prefHeight="53.0" prefWidth="379.0" spacing="20.0" style="-fx-background-radius: 20;">
          <children>
-            <JFXButton fx:id="btnSave" buttonType="RAISED" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="21.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
+            <JFXButton fx:id="btnClear" alignment="CENTER" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0">
-                     <image>
-                        <Image url="@../assets/icon/save.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="btnUpdate" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="44.0" prefWidth="11.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0">
-                     <image>
-                        <Image url="@../assets/icon/update.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="btnClear" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="44.0" prefWidth="5.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
                      <image>
                         <Image url="@../assets/icon/clear.png" />
                      </image>
@@ -93,12 +66,33 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="0.0" ripplerFill="#233449" style="-fx-background-radius: 15;" text=" ">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
+            <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0">
+                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../assets/icon/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../assets/icon/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
                      <image>
                         <Image url="@../assets/icon/delete.png" />
                      </image>
@@ -109,14 +103,13 @@
                </cursor>
             </JFXButton>
          </children>
-         <padding>
-            <Insets left="40.0" />
-         </padding>
-      </VBox>
-      <TextField fx:id="txtProgramId" layoutX="124.0" layoutY="140.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="34.0" prefWidth="141.0" promptText="Program ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
-         <font>
-            <Font name="Arial Bold" size="15.0" />
-         </font>
-      </TextField>
+         <effect>
+            <DropShadow height="4.0" offsetX="2.0" offsetY="3.0" radius="2.5" spread="0.4" width="8.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5055433511734009" blue="0.5055433511734009" opacity="0.6700000166893005" />
+               </color>
+            </DropShadow>
+         </effect>
+      </HBox>
    </children>
 </Pane>

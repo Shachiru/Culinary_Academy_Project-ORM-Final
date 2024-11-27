@@ -125,6 +125,7 @@ public class AdminProgramFormController implements Initializable {
         if (deleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully").show();
             loadAllPrograms();
+            clearFields();
         }
     }
 
@@ -166,6 +167,7 @@ public class AdminProgramFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllPrograms();
                 clearFields();
+                generateNextProgramId();
             }
         }
     }
@@ -182,6 +184,7 @@ public class AdminProgramFormController implements Initializable {
         if (updated) {
             new Alert(Alert.AlertType.CONFIRMATION, "Updated Successfully").show();
             loadAllPrograms();
+            clearFields();
         }
     }
 
