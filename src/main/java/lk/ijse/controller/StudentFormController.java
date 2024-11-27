@@ -15,6 +15,7 @@ import lk.ijse.dto.StudentDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.StudentBO;
 import lk.ijse.tm.StudentTM;
+import lk.ijse.util.Validation;
 
 import java.net.URL;
 import java.util.List;
@@ -51,6 +52,21 @@ public class StudentFormController implements Initializable {
 
     @FXML
     private TextField txtStudentId;
+
+    @FXML
+    private Label stAddressValidate;
+
+    @FXML
+    private Label stContactValidate;
+
+    @FXML
+    private Label stEmailValidate;
+
+    @FXML
+    private Label stIdValidate;
+
+    @FXML
+    private Label stNameValidate;
 
     @FXML
     private Pane pagingPane;
@@ -125,10 +141,7 @@ public class StudentFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
-        if (txtStudentId.getText().isEmpty() || txtStudentName.getText().isEmpty() || txtAddress.getText().isEmpty(
-        ) || txtContact.getText().isEmpty() || txtEmail.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please fill all the fields").show();
-        } else {
+        if (ValidateInputFields()) {
             String id = txtStudentId.getText();
             String name = txtStudentName.getText();
             String address = txtAddress.getText();
@@ -136,7 +149,6 @@ public class StudentFormController implements Initializable {
             String email = txtEmail.getText();
 
             StudentDTO studentDTO = new StudentDTO(id, name, address, contact, email);
-
             boolean saved = studentBO.saveStudent(studentDTO);
             if (saved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
@@ -145,6 +157,44 @@ public class StudentFormController implements Initializable {
                 generateNextStudentId();
             }
         }
+    }
+
+    private boolean ValidateInputFields() {
+        boolean isValid = true;
+
+        if (!Validation.studentIdValidate(txtStudentId.getText())) {
+            stIdValidate.setText("Invalid Student ID");
+            isValid = false;
+        } else {
+            stIdValidate.setText("");
+        }
+
+        if (!Validation.nameValidate(txtStudentName.getText())) {
+            stNameValidate.setText("Invalid Student Name");
+            isValid = false;
+        } else {
+            stNameValidate.setText("");
+        }
+
+        if (!Validation.addressValidate(txtAddress.getText())) {
+            stAddressValidate.setText("Invalid Address");
+            isValid = false;
+        } else {
+            stAddressValidate.setText("");
+        }
+
+        if (!Validation.mobileValidate(txtContact.getText())) {
+            stContactValidate.setText("Invalid Contact");
+            isValid = false;
+        } else {
+            stContactValidate.setText("");
+        }
+
+        if (!Validation.emailCheck(txtEmail.getText())) {
+            stEmailValidate.setText("Invalid Email");
+            isValid = false;
+        }
+        return isValid;
     }
 
     private void loadAllStudents() {

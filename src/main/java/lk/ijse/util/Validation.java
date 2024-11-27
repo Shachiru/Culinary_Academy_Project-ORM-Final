@@ -12,31 +12,38 @@ public class Validation {
         return matcher.matches();
     }
 
-    public static boolean userNameValidate(String userName) {
-        String userRegex = "^[A-z\\s]{4,15}$";
-        Pattern pattern = Pattern.compile(userRegex);
-        Matcher matcher = pattern.matcher(userName);
+    public static boolean studentIdValidate(String studentId) {
+        String studentRegex = "^STU-\\d{4}$";
+        Pattern pattern = Pattern.compile(studentRegex);
+        Matcher matcher = pattern.matcher(studentId);
         return matcher.matches();
     }
 
-    public static boolean userPasswordValidate(String password) {
-        String userRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
-        Pattern pattern = Pattern.compile(userRegex);
+    public static boolean nameValidate(String name) {
+        String nameRegex = "^[A-z\\s]{4,15}$";
+        Pattern pattern = Pattern.compile(nameRegex);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
+    }
+
+    public static boolean passwordValidate(String password) {
+        String passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
+        Pattern pattern = Pattern.compile(passwordRegex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
 
     public static boolean addressValidate(String address) {
-        String userRegex = "[A-z @ 0-9]{4,20}";
-        Pattern pattern = Pattern.compile(userRegex);
+        String addressRegex = "[A-z @ 0-9]{4,20}";
+        Pattern pattern = Pattern.compile(addressRegex);
         Matcher matcher = pattern.matcher(address);
         return matcher.matches();
     }
 
-    public static boolean userMobileValidate(String userMobile) {
-        String userRegex = "^(?:7|0|(?:\\\\\\\\+94))[0-9]{9,10}$";
-        Pattern pattern = Pattern.compile(userRegex);
-        Matcher matcher = pattern.matcher(userMobile);
+    public static boolean mobileValidate(String mobile) {
+        String mobileRegex = "^(?:7|0|(?:\\\\\\\\+94))[0-9]{9,10}$";
+        Pattern pattern = Pattern.compile(mobileRegex);
+        Matcher matcher = pattern.matcher(mobile);
         return matcher.matches();
     }
 

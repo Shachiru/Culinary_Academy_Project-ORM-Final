@@ -211,14 +211,14 @@ public class AdminUsersFormController implements Initializable {
             userIdValidate.setText("");
         }
 
-        if (!Validation.nameValidate(txtUsername.getText())) {
+        if (!Validation.NameValidate(txtUsername.getText())) {
             userNameValidate.setText("Invalid User Name");
             isValid = false;
         } else {
             userNameValidate.setText("");
         }
 
-        if (!Validation.passwordValidate(txtPassword.getText())) {
+        if (!Validation.PasswordValidate(txtPassword.getText())) {
             userPasswordValidate.setText("Invalid Password");
             isValid = false;
         } else {
@@ -232,7 +232,7 @@ public class AdminUsersFormController implements Initializable {
             userAddressValidate.setText("");
         }
 
-        if (!Validation.mobileValidate(txtMobile.getText())) {
+        if (!Validation.MobileValidate(txtMobile.getText())) {
             userMobileValidate.setText("Invalid Mobile Number. Include 10 characters");
             isValid = false;
         } else {

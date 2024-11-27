@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -118,5 +120,30 @@
             </DropShadow>
          </effect>
       </HBox>
+      <Label fx:id="stNameValidate" layoutX="114.0" layoutY="252.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="stContactValidate" layoutX="634.0" layoutY="406.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="stEmailValidate" layoutX="113.0" layoutY="406.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="stAddressValidate" layoutX="634.0" layoutY="252.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="stIdValidate" layoutX="114.0" layoutY="164.0" prefHeight="17.0" prefWidth="140.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
     </children>
 </Pane>
