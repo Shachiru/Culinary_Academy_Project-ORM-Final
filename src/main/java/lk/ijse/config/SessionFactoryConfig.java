@@ -1,5 +1,6 @@
 package lk.ijse.config;
 
+import lk.ijse.entity.Admin;
 import lk.ijse.entity.Program;
 import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
@@ -33,10 +34,10 @@ public class SessionFactoryConfig {
 
         sessionFactory = new Configuration()
                 .setProperties(properties)
-                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Program.class)
+                .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(User.class)
-//                .addAnnotatedClass(Admin.class)
 //                .addAnnotatedClass(Transaction.class)
 //                .addAnnotatedClass(TransactionDetail.class)
                 .buildSessionFactory();

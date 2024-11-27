@@ -1,0 +1,33 @@
+package lk.ijse.service.custom.impl;
+
+import lk.ijse.dto.AdminDTO;
+import lk.ijse.service.custom.AdminBO;
+
+import java.util.ArrayList;
+
+public class AdminBOImpl implements AdminBO {
+    @Override
+    public boolean saveAdmin(AdminDTO adminDTO) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean updateAdmin(AdminDTO adminDTO) throws Exception {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAdmin(AdminDTO adminDTO) throws Exception {
+        return false;
+    }
+
+    @Override
+    public ArrayList<String> loadIds() throws Exception {
+        return null;
+    }
+
+    @Override
+    public String generateNextAdminId() throws Exception {
+        return "";
+    }
+}
