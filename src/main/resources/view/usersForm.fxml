@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -112,12 +113,30 @@
             </DropShadow>
          </effect>
       </HBox>
-      <Label fx:id="userIdValidate" alignment="CENTER" layoutX="140.0" layoutY="199.0" prefHeight="17.0" prefWidth="161.0" />
-      <Label fx:id="UserNameValidate" alignment="CENTER" layoutX="352.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" />
-      <Label fx:id="UserMobileValidate" alignment="CENTER" layoutX="786.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" />
-      <Label fx:id="userEmailValidate" alignment="CENTER" layoutX="140.0" layoutY="298.0" prefHeight="17.0" prefWidth="591.0" />
-      <Label fx:id="userPasswordValidate" alignment="CENTER" layoutX="786.0" layoutY="298.0" prefHeight="17.0" prefWidth="379.0" />
-      <Label fx:id="userAddressValidate" alignment="CENTER" layoutX="140.0" layoutY="404.0" prefHeight="17.0" prefWidth="591.0" />
+      <Label fx:id="userIdValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="199.0" prefHeight="17.0" prefWidth="161.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
+      <Label fx:id="userNameValidate" alignment="TOP_LEFT" layoutX="352.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
+      <Label fx:id="userMobileValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
+      <Label fx:id="userEmailValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="298.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
+      <Label fx:id="userPasswordValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="298.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
+      <Label fx:id="userAddressValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="404.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
+         <padding>
+            <Insets left="15.0" />
+         </padding></Label>
       <TableView fx:id="tblUser" layoutX="140.0" layoutY="513.0" onMouseClicked="#tblClick" prefHeight="337.0" prefWidth="1031.0">
          <columns>
             <TableColumn fx:id="colUserId" prefWidth="112.0" text="ID" />

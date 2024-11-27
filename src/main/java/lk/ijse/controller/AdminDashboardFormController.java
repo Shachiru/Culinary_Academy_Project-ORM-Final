@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import lk.ijse.service.BOFactory;
+import lk.ijse.service.custom.DashboardBO;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URL;
@@ -32,6 +34,8 @@ public class AdminDashboardFormController implements Initializable {
 
     @FXML
     private Pane pagingPane;
+
+    DashboardBO dashboardBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.DashboardBO);
 
     private volatile boolean running = true;
 
@@ -62,6 +66,16 @@ public class AdminDashboardFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timeNow();
+        studentCount();
+        programCount();
+    }
+
+    private void programCount() {
+        lblProgramCount.setText(String.valueOf(dashboardBO.programCount()));
+    }
+
+    private void studentCount() {
+        lblStudentCount.setText(String.valueOf(dashboardBO.studentCount()));
     }
 
     public void stop() {

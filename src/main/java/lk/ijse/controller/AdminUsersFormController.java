@@ -15,6 +15,7 @@ import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.UserBO;
 import lk.ijse.tm.ProgramTM;
 import lk.ijse.tm.UserTM;
+import lk.ijse.util.Validation;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,10 +25,10 @@ import java.util.ResourceBundle;
 public class AdminUsersFormController implements Initializable {
 
     @FXML
-    private Label UserMobileValidate;
+    private Label userMobileValidate;
 
     @FXML
-    private Label UserNameValidate;
+    private Label userNameValidate;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -181,14 +182,7 @@ public class AdminUsersFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
-        if (txtUserId.getText().isEmpty()
-                || txtUsername.getText().isEmpty()
-                || txtPassword.getText().isEmpty()
-                || txtAddress.getText().isEmpty()
-                || txtMobile.getText().isEmpty()
-                || txtEmail.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please fill all the fields").show();
-        } else {
+        if (validateInputFields()) {
             String id = txtUserId.getText();
             String name = txtUsername.getText();
             String password = txtPassword.getText();
@@ -205,6 +199,53 @@ public class AdminUsersFormController implements Initializable {
                 generateNextUserId();
             }
         }
+    }
+
+    private boolean validateInputFields() {
+        boolean isValid = true;
+
+        if (!Validation.userIdValidate(txtUserId.getText())) {
+            userIdValidate.setText("Invalid User ID");
+            isValid = false;
+        } else {
+            userIdValidate.setText("");
+        }
+
+        if (!Validation.userNameValidate(txtUsername.getText())) {
+            userNameValidate.setText("Invalid User Name");
+            isValid = false;
+        } else {
+            userNameValidate.setText("");
+        }
+
+        if (!Validation.userPasswordValidate(txtPassword.getText())) {
+            userPasswordValidate.setText("Invalid Password");
+            isValid = false;
+        } else {
+            userPasswordValidate.setText("");
+        }
+
+        if (!Validation.addressValidate(txtAddress.getText())) {
+            userAddressValidate.setText("Invalid Address");
+            isValid = false;
+        } else {
+            userAddressValidate.setText("");
+        }
+
+        if (!Validation.userMobileValidate(txtMobile.getText())) {
+            userMobileValidate.setText("Invalid Mobile Number. Include 10 characters");
+            isValid = false;
+        } else {
+            userMobileValidate.setText("");
+        }
+
+        if (!Validation.emailCheck(txtEmail.getText())) {
+            userEmailValidate.setText("Invalid Email");
+            isValid = false;
+        } else {
+            userEmailValidate.setText("");
+        }
+        return isValid;
     }
 
     @FXML
