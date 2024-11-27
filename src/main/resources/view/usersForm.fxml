@@ -8,12 +8,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -24,122 +22,63 @@
             <Font name="Arial Bold" size="60.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUserId" layoutX="140.0" layoutY="141.0" prefHeight="53.0" prefWidth="161.0" promptText="User ID : " style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <TextField fx:id="txtUserId" layoutX="140.0" layoutY="143.0" prefHeight="40.0" prefWidth="165.0" promptText="User ID : " style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtUsername" layoutX="352.0" layoutY="141.0" prefHeight="53.0" prefWidth="379.0" promptText="User Name :" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <TextField fx:id="txtUsername" layoutX="357.0" layoutY="143.0" prefHeight="40.0" prefWidth="379.0" promptText="User Name :" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="140.0" layoutY="243.0" prefHeight="53.0" prefWidth="591.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <TextField fx:id="txtEmail" layoutX="140.0" layoutY="240.0" prefHeight="40.0" prefWidth="591.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtMobile" layoutX="786.0" layoutY="141.0" prefHeight="53.0" prefWidth="379.0" promptText="Mobile Number" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <TextField fx:id="txtMobile" layoutX="786.0" layoutY="143.0" prefHeight="40.0" prefWidth="379.0" promptText="Mobile Number" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="txtPassword" layoutX="786.0" layoutY="243.0" prefHeight="53.0" prefWidth="379.0" promptText="User Password" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <PasswordField fx:id="txtPassword" layoutX="786.0" layoutY="242.0" prefHeight="40.0" prefWidth="379.0" promptText="User Password" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="txtAddress" layoutX="140.0" layoutY="351.0" prefHeight="53.0" prefWidth="591.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: gray; -fx-border-radius: 20;">
+      <TextField fx:id="txtAddress" layoutX="140.0" layoutY="329.0" prefHeight="40.0" prefWidth="591.0" promptText="Address" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: gray; -fx-border-radius: 12;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </TextField>
-      <HBox alignment="CENTER" layoutX="792.0" layoutY="444.0" prefHeight="53.0" prefWidth="379.0" spacing="20.0" style="-fx-background-radius: 20;">
-         <children>
-            <JFXButton fx:id="btnClear" alignment="CENTER" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
-                     <image>
-                        <Image url="@../assets/icon/clear.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
-                     <image>
-                        <Image url="@../assets/icon/update.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" onAction="#btnSaveOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
-                     <image>
-                        <Image url="@../assets/icon/save.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="100.0" ripplerFill="#233449" style="-fx-background-color: white; -fx-background-radius: 15;" text=" ">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" style="-fx-cursor: pointer;">
-                     <image>
-                        <Image url="@../assets/icon/delete.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow height="4.0" offsetX="2.0" offsetY="3.0" radius="2.5" spread="0.4" width="8.0">
-               <color>
-                  <Color red="0.5657894611358643" green="0.5055433511734009" blue="0.5055433511734009" opacity="0.6700000166893005" />
-               </color>
-            </DropShadow>
-         </effect>
-      </HBox>
-      <Label fx:id="userIdValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="199.0" prefHeight="17.0" prefWidth="161.0" textFill="RED">
+      <Label fx:id="userIdValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="184.0" prefHeight="17.0" prefWidth="165.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <Label fx:id="userNameValidate" alignment="TOP_LEFT" layoutX="352.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+      <Label fx:id="userNameValidate" alignment="TOP_LEFT" layoutX="357.0" layoutY="184.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <Label fx:id="userMobileValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="199.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+      <Label fx:id="userMobileValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="184.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <Label fx:id="userEmailValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="298.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
+      <Label fx:id="userEmailValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="281.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <Label fx:id="userPasswordValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="298.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
+      <Label fx:id="userPasswordValidate" alignment="TOP_LEFT" layoutX="786.0" layoutY="282.0" prefHeight="17.0" prefWidth="379.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <Label fx:id="userAddressValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="404.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
+      <Label fx:id="userAddressValidate" alignment="TOP_LEFT" layoutX="140.0" layoutY="369.0" prefHeight="17.0" prefWidth="591.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding></Label>
-      <TableView fx:id="tblUser" layoutX="140.0" layoutY="513.0" onMouseClicked="#tblClick" prefHeight="337.0" prefWidth="1031.0">
+      <TableView fx:id="tblUser" layoutX="140.0" layoutY="412.0" onMouseClicked="#tblClick" prefHeight="451.0" prefWidth="1031.0">
          <columns>
-            <TableColumn fx:id="colUserId" prefWidth="112.0" text="ID" />
+            <TableColumn fx:id="colUserId" prefWidth="110.0" text="ID" />
             <TableColumn fx:id="colUserName" prefWidth="136.0" text="Name" />
             <TableColumn fx:id="colPassword" prefWidth="129.0" text="Password" />
             <TableColumn fx:id="colAddress" prefWidth="180.0" text="Address" />
@@ -147,5 +86,48 @@
             <TableColumn fx:id="colEmail" prefWidth="298.0" text="Email" />
          </columns>
       </TableView>
+      <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" layoutX="792.0" layoutY="329.0" onAction="#btnSaveOnAction" prefHeight="40.0" prefWidth="106.0" ripplerFill="#233449" style="-fx-background-color: #0f0f19; -fx-background-radius: 8;" text="Add" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0">
+               <image>
+                  <Image url="@../assets/icon/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <VBox layoutX="1214.0" layoutY="438.0" prefHeight="200.0" prefWidth="130.0" spacing="20.0">
+         <children>
+            <JFXButton fx:id="btnClear" alignment="CENTER" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="40.0" prefWidth="130.0" ripplerFill="#233449" style="-fx-background-color: #a5e1f5; -fx-background-radius: 8;" text="Clear">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="130.0" ripplerFill="#233449" style="-fx-background-color: #a5e1f5; -fx-background-radius: 8;" text="Update">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="130.0" ripplerFill="#233449" style="-fx-background-color: #a5e1f5; -fx-background-radius: 8;" text="Delete">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
    </children>
 </Pane>

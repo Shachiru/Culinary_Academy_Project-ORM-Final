@@ -4,3 +4,25 @@
 .buttons:hover {
     -fx-background-color: gray;
 }
+.table-view {
+    -fx-background-color: #f0f0f0; /* Background color of the table */
+    -fx-border-color: #cccccc;    /* Border color of the table */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #ffcc00; /* Background color of column headers */
+}
+
+.table-row-cell {
+    -fx-background-color: #ffffff; /* Default row background color */
+    -fx-border-color: #e0e0e0;     /* Row border color */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9; /* Alternate row color */
+}
+
+.table-cell {
+    -fx-text-fill: #333333;        /* Text color */
+    -fx-font-weight: bold;         /* Bold text */
+}

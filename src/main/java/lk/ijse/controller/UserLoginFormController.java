@@ -43,12 +43,9 @@ public class UserLoginFormController {
 
     }
 
-
     @FXML
     void btnBackOnAction(ActionEvent event) {
         btnBack.getScene().getWindow().hide();
         Navigation.changeStage("/view/mainForm.fxml", "Main Form");
     }
-
-
 }
