@@ -117,6 +117,23 @@ public class StudentBOImpl implements StudentBO {
         return incrementId(lastId);
     }
 
+    @Override
+    public boolean checkStudent(String id) throws Exception {
+        return studentDAO.checkStudent(id);
+    }
+
+    @Override
+    public StudentDTO searchStudentId(String id) throws Exception {
+        Student student = studentDAO.searchById(id);
+        return new StudentDTO(
+                student.getId(),
+                student.getName(),
+                student.getAddress(),
+                student.getContact(),
+                student.getEmail()
+        );
+    }
+
     private String incrementId(String lastId) {
         if (lastId == null) {
             return "STU-0001";

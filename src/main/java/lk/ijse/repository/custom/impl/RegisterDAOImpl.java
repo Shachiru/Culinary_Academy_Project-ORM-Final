@@ -47,6 +47,11 @@ public class RegisterDAOImpl implements RegisterDAO {
     }
 
     @Override
+    public Register search(String id) throws Exception {
+        return null;
+    }
+
+    @Override
     public void setSession(Session session) {
         this.session = session;
     }

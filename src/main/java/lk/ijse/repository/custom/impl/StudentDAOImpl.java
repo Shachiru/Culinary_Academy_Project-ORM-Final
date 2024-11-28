@@ -51,6 +51,11 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
+    public Student search(String id) throws Exception {
+        return null;
+    }
+
+    @Override
     public void setSession(Session session) {
         this.session = session;
     }
@@ -85,6 +90,35 @@ public class StudentDAOImpl implements StudentDAO {
             return Math.toIntExact(count);
         } else {
             return 0;
+        }
+    }
+
+    @Override
+    public Student searchById(String id) throws Exception {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        try {
+            String sql = "SELECT S FROM Student AS S WHERE S.id = :id";
+            Query<Student> query = session.createQuery(sql, Student.class);
+            query.setParameter("id", id);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean checkStudent(String id) {
+        try {
+            String sql = "FROM Student AS S WHERE S.id = :id";
+            Query<Student> query = session.createQuery(sql, Student.class);
+            query.setParameter("id", id);
+            return query.uniqueResult() != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

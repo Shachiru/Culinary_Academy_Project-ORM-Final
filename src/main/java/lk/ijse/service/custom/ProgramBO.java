@@ -20,5 +20,5 @@ public interface ProgramBO extends SuperBO {
 
     String generateNextProgramId() throws Exception;
 
-    ProgramDTO searchProgram(String value) throws SQLException, ClassNotFoundException;
+    ProgramDTO searchProgramByName(String selectedCourse) throws SQLException;
 }

@@ -118,27 +118,23 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public ProgramDTO searchProgram(String value) throws SQLException, ClassNotFoundException {
+    public ProgramDTO searchProgramByName(String name) throws SQLException {
         Session session = SessionFactoryConfig.getInstance().getSession();
-       try{
-           Query<Program> query = session.createQuery("FROM Program WHERE id = :id OR name = :name");
-           query.setParameter("id", value);
-           List<Program> results = query.list();
-           if (!results.isEmpty()){
-               Program program = results.get(0);
-               return new ProgramDTO(
-                       program.getId(),
-                       program.getName(),
-                       program.getSeats(),
-                       program.getDuration(),
-                       program.getFee()
-               );
-           }
-       } catch (Exception e) {
-           e.printStackTrace();
-       }
-       return null;
+        programDAO.setSession(session);
+        Program program = programDAO.searchProgramByName(name);
+        session.close();
+        if (program != null) {
+            return new ProgramDTO(
+                    program.getId(),
+                    program.getName(),
+                    program.getSeats(),
+                    program.getDuration(),
+                    program.getFee());
+        } else {
+            return null;
+        }
     }
+
 
     private String incrementId(String lastId) {
         if (lastId == null) {

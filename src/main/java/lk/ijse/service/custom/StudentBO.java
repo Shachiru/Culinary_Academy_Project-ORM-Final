@@ -20,4 +20,8 @@ public interface StudentBO extends SuperBO {
     ArrayList<String> loadIds() throws SQLException;
 
     String generateNextStudentId() throws Exception;
+
+    boolean checkStudent(String id) throws Exception;
+
+    StudentDTO searchStudentId(String id) throws Exception;
 }

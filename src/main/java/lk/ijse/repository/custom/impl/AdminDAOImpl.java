@@ -65,6 +65,11 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
+    public Admin search(String id) throws Exception {
+        return null;
+    }
+
+    @Override
     public void setSession(Session session) {
         this.session = session;
     }

@@ -51,6 +51,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User search(String id) throws Exception {
+        return null;
+    }
+
+    @Override
     public void setSession(Session session) {
         this.session = session;
     }

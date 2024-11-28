@@ -7,5 +7,5 @@ public interface ProgramDAO extends CrudDAO<Program, String> {
     String generateNextId();
     int programCount();
 
-    Program search(String id) throws Exception;
+    Program searchProgramByName(String name);
 }

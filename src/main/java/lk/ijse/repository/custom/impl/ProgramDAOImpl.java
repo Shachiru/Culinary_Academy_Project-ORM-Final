@@ -89,6 +89,18 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
+    public Program searchProgramByName(String name) {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Query query = session.createQuery("FROM Program WHERE name = :name");
+            query.setParameter("name", name);
+            return (Program) query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public Program search(String id) throws Exception {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
             return session.get(Program.class, id);

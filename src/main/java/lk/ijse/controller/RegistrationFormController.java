@@ -6,29 +6,26 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.dto.ProgramDTO;
+import lk.ijse.dto.StudentDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
 import lk.ijse.service.custom.RegisterBO;
+import lk.ijse.service.custom.StudentBO;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class RegistrationFormController implements Initializable {
 
     ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
     RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegisterBO);
-
-    ProgramDTO programDTO;
 
     @FXML
     private JFXButton btnAddToCart;
@@ -108,20 +105,43 @@ public class RegistrationFormController implements Initializable {
     @FXML
     private TextField txtStudentName;
 
+    StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.StudentBO);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadAllPrograms();
+        generateNextRegistrationId();
+        setCellValueFactory();
+        cmbSelectCourse.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+            }
+        });
+    }
+
+    private void setCellValueFactory() {
+        colRegistrationId.setCellValueFactory(new PropertyValueFactory<>("registrationId"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colCourseId.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        colCourseFee.setCellValueFactory(new PropertyValueFactory<>("courseFee"));
+        colAdvance.setCellValueFactory(new PropertyValueFactory<>("advance"));
+        colRemainingFee.setCellValueFactory(new PropertyValueFactory<>("remainingFee"));
+        colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
+        colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
+    }
+
     @FXML
-    void cmbSelectCourseOnAction(ActionEvent event) {
-        try {
-            programDTO = programBO.searchProgram(cmbSelectCourse.getValue());
+    void cmbSelectCourseOnAction(ActionEvent event) throws SQLException {
+        String selectedCourse = cmbSelectCourse.getSelectionModel().getSelectedItem();
+        if (selectedCourse != null) {
+
+            ProgramDTO programDTO = programBO.searchProgramByName(selectedCourse);
             if (programDTO != null) {
+
                 txtCourseId.setText(programDTO.getId());
                 txtCourseFee.setText(String.valueOf(programDTO.getFee()));
-                txtDuration.setText(String.valueOf(programDTO.getDuration()));
-                txtAvailableSeats.setText(String.valueOf(programDTO.getSeats()));
-            } else {
-                System.out.println("Program not found");
+                txtDuration.setText(programDTO.getDuration());
+                txtAvailableSeats.setText(programDTO.getSeats());
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -137,18 +157,45 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Clear Fields");
+        alert.setHeaderText("Are you sure you want to clear all fields?");
+        alert.setContentText("This will remove all data from the form.");
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            txtCourseId.clear();
+            txtCourseFee.clear();
+            txtDuration.clear();
+            txtAvailableSeats.clear();
+            txtRegistrationId.clear();
+            txtStudentContact.clear();
+            txtStudentEmail.clear();
+            txtStudentId.clear();
+            txtStudentName.clear();
+            cmbSelectCourse.getSelectionModel().clearSelection();
+        }
     }
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadAllPrograms();
-        generateNextRegistrationId();
+        String studentId = txtStudentId.getText();
+        if (!studentId.isEmpty()) {
+            try {
+                StudentDTO studentDTO = studentBO.searchStudentId(studentId);
+                if (studentDTO != null) {
+                    txtStudentName.setText(studentDTO.getName());
+                    txtStudentEmail.setText(studentDTO.getEmail());
+                    txtStudentContact.setText(studentDTO.getContact());
+                } else {
+                    new Alert(Alert.AlertType.WARNING, "No Student Found: " + studentId).show();
+                }
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "Error occurred while searching student").show();
+            }
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Please enter student ID").show();
+        }
     }
 
     private void generateNextRegistrationId() {
