@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ebf5ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserGlobalFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edf6ff" height="900.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="230.0" />
+      <ImageView fitHeight="107.0" fitWidth="85.0" layoutX="73.0" layoutY="14.0">
+         <image>
+            <Image url="@../../assets/img/Logo.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnLogout" alignment="TOP_LEFT" buttonType="RAISED" layoutY="800.0" onAction="#btnLogoutOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   LogOut" textFill="#0f0f19">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../../assets/icon/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Text fill="#0f0f19" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Coordinator" textAlignment="CENTER" underline="true" wrappingWidth="230.0">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Text>
+      <Pane fx:id="pagingPane" layoutX="233.0" prefHeight="900.0" prefWidth="1369.0" />
+      <VBox layoutY="199.0" prefHeight="247.0" prefWidth="230.0" spacing="15.0">
+         <children>
+            <JFXButton id="btnDashboard" fx:id="btnDashboard" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnDashboardOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" styleClass="buttons" stylesheets="@../../assets/css/style.css" text="   Dashboard" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/main-menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnRegistration" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Registration" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/register.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnStudent" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnStudentOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Student" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/student.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnPrograms" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnProgramsOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Programs" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/programs.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnSettings" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnSettingsOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Settings" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/setting.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="btnUsers" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnUsersOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Users" textFill="#0f0f19">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/users.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6470588445663452" green="0.8823529481887817" blue="0.9607843160629272" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Separator layoutX="230.0" orientation="VERTICAL" prefHeight="900.0" prefWidth="1.0" />
+   </children>
+</AnchorPane>

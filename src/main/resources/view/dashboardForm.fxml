@@ -19,7 +19,7 @@
         </Text>
       <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="955.0" layoutY="25.0" opacity="0.61">
          <image>
-            <Image url="@../../assets/img/chefdish.png" />
+            <Image url="@../assets/img/chefdish.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f7ffff" height="280.0" layoutX="110.0" layoutY="495.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0">
@@ -66,17 +66,17 @@
       </Text>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="235.0" layoutY="569.0">
          <image>
-            <Image url="@../../assets/icon/education.png" />
+            <Image url="@../assets/icon/education.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1092.0" layoutY="569.0">
          <image>
-            <Image url="@../../assets/icon/search-document.png" />
+            <Image url="@../assets/icon/search-document.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="649.0" layoutY="569.0">
          <image>
-            <Image url="@../../assets/icon/registered.png" />
+            <Image url="@../assets/icon/registered.png" />
          </image>
       </ImageView>
       <Label fx:id="lblStudentCount" alignment="CENTER" layoutX="225.0" layoutY="703.0" prefHeight="53.0" prefWidth="90.0" textFill="#233449">

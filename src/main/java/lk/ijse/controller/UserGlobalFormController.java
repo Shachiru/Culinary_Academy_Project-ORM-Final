@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import lk.ijse.util.Navigation;
 
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminGlobalFormController implements Initializable {
+public class UserGlobalFormController implements Initializable {
 
     @FXML
     private JFXButton btnDashboard;
@@ -45,31 +46,36 @@ public class AdminGlobalFormController implements Initializable {
     @FXML
     void btnLogoutOnAction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("mainForm.fxml", event);
+
     }
 
     @FXML
-    void btnProgramsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "programsForm.fxml");
+    void btnProgramsOnAction(ActionEvent event) {
+        new Alert(Alert.AlertType.WARNING, "OOPS! You are not allowed to access this page! Only Admins.").show();
     }
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(pagingPane, "admin/registrationForm.fxml");
+
     }
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(pagingPane, "admin/settingForm.fxml");
+
     }
 
     @FXML
     void btnStudentOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(pagingPane, "studentForm.fxml");
+
     }
 
     @FXML
-    void btnUsersOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "usersForm.fxml");
+    void btnUsersOnAction(ActionEvent event) {
+        new Alert(Alert.AlertType.WARNING, "OOPS! You are not allowed to access this page! Only Admins.").show();
+
     }
 
     @Override

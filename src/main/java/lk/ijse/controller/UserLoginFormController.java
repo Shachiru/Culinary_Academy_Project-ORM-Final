@@ -8,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import lk.ijse.util.Navigation;
 
+import java.io.IOException;
+
 public class UserLoginFormController {
 
     @FXML
@@ -29,8 +31,8 @@ public class UserLoginFormController {
     private TextField txtUsername;
 
     @FXML
-    void btnLoginOnAction(ActionEvent event) {
-
+    void btnLoginOnAction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("user/userGlobalForm.fxml", event);
     }
 
     @FXML
