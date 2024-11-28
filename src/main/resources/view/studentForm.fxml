@@ -21,11 +21,11 @@
                 <Font name="Arial Bold" size="50.0" />
             </font>
         </Text>
-      <TextField fx:id="txtStudentName" layoutX="114.0" layoutY="218.0" prefHeight="40.0" prefWidth="391.0" promptText="Student Name" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+      <TextField fx:id="txtStudentName" layoutX="114.0" layoutY="233.0" prefHeight="40.0" prefWidth="391.0" promptText="Student Name" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <TextField fx:id="txtAddress" layoutX="619.0" layoutY="218.0" prefHeight="40.0" prefWidth="391.0" promptText="Student Address" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+      <TextField fx:id="txtAddress" layoutX="619.0" layoutY="233.0" prefHeight="40.0" prefWidth="391.0" promptText="Student Address" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
          <font>
             <Font size="15.0" />
          </font></TextField>
@@ -46,17 +46,17 @@
             <TableColumn fx:id="colEmail" prefWidth="357.0" text="EMAIL" />
          </columns>
       </TableView>
-      <TextField fx:id="txtStudentId" layoutX="114.0" layoutY="130.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="40.0" prefWidth="154.0" promptText="Student ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
+      <TextField fx:id="txtStudentId" layoutX="114.0" layoutY="135.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="40.0" prefWidth="154.0" promptText="Student ID" style="-fx-border-color: #233449; -fx-border-radius: 8; -fx-background-radius: 8;">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>
       </TextField>
-      <Label fx:id="stIdValidate" layoutX="115.0" layoutY="170.0" prefHeight="17.0" prefWidth="154.0" textFill="RED">
+      <Label fx:id="stIdValidate" layoutX="114.0" layoutY="176.0" prefHeight="17.0" prefWidth="154.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding>
       </Label>
-      <Label fx:id="stNameValidate" layoutX="114.0" layoutY="261.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+      <Label fx:id="stNameValidate" layoutX="114.0" layoutY="274.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding>
@@ -66,7 +66,7 @@
             <Insets left="15.0" />
          </padding>
       </Label>
-      <Label fx:id="stAddressValidate" layoutX="619.0" layoutY="261.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
+      <Label fx:id="stAddressValidate" layoutX="619.0" layoutY="274.0" prefHeight="17.0" prefWidth="391.0" textFill="RED">
          <padding>
             <Insets left="15.0" />
          </padding>
@@ -91,9 +91,9 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <VBox layoutX="1046.0" layoutY="187.0" prefHeight="209.0" prefWidth="172.0" spacing="19.0" style="-fx-background-color: white;">
+      <VBox alignment="CENTER" layoutX="1084.0" layoutY="215.0" prefHeight="209.0" prefWidth="172.0" spacing="19.0" style="-fx-background-color: white;">
          <children>
-            <JFXButton fx:id="btnClear" alignment="CENTER" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="217.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Clear" textFill="#f7ffff">
+            <JFXButton fx:id="btnClear" alignment="CENTER" buttonType="RAISED" onAction="#btnClearOnAction" prefHeight="50.0" prefWidth="140.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Clear" textFill="#f7ffff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -108,7 +108,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="219.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Update" textFill="#f7ffff">
+            <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" onAction="#btnUpdateOnAction" prefHeight="50.0" prefWidth="140.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Update" textFill="#f7ffff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -123,7 +123,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="203.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Delete" textFill="#f7ffff">
+            <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" onAction="#btnDeleteOnAction" prefHeight="50.0" prefWidth="140.0" ripplerFill="#233449" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="Delete" textFill="#f7ffff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

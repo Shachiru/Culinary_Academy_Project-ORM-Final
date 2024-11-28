@@ -20,6 +20,7 @@ import lk.ijse.util.Validation;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminUsersFormController implements Initializable {
@@ -172,11 +173,20 @@ public class AdminUsersFormController implements Initializable {
         String id = txtUserId.getText();
         UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
-        boolean deleted = userBO.deleteUser(userDTO);
-        if (deleted) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully").show();
-            loadAllUsers();
-            clearFields();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete User");
+        alert.setHeaderText("Are you sure you want to delete this user?");
+        alert.setContentText("User ID: " + id);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            boolean deleted = userBO.deleteUser(userDTO);
+            if (deleted) {
+                new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully").show();
+                loadAllUsers();
+                clearFields();
+            }
         }
     }
 

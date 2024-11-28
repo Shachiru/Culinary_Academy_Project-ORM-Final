@@ -20,6 +20,7 @@ import lk.ijse.util.Validation;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminProgramFormController implements Initializable {
@@ -145,11 +146,20 @@ public class AdminProgramFormController implements Initializable {
         String id = txtProgramId.getText();
         ProgramDTO programDTO = new ProgramDTO();
         programDTO.setId(id);
-        boolean deleted = programBO.deleteProgram(programDTO);
-        if (deleted) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Deleted Successfully").show();
-            loadAllPrograms();
-            clearFields();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Program");
+        alert.setHeaderText("Are you sure you want to delete this program?");
+        alert.setContentText("Program ID: " + id);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            boolean deleted = programBO.deleteProgram(programDTO);
+            if (deleted) {
+                new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully").show();
+                loadAllPrograms();
+                clearFields();
+            }
         }
     }
 
