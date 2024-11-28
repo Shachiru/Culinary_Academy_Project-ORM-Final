@@ -54,12 +54,12 @@ public class AdminGlobalFormController implements Initializable {
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/registrationForm.fxml");
+        Navigation.switchPaging(pagingPane, "registrationForm.fxml");
     }
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/settingForm.fxml");
+        Navigation.switchPaging(pagingPane, "settingForm.fxml");
     }
 
     @FXML

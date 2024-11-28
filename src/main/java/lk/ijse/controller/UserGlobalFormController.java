@@ -46,7 +46,6 @@ public class UserGlobalFormController implements Initializable {
     @FXML
     void btnLogoutOnAction(ActionEvent event) throws IOException {
         Navigation.switchNavigation("mainForm.fxml", event);
-
     }
 
     @FXML
@@ -56,26 +55,22 @@ public class UserGlobalFormController implements Initializable {
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/registrationForm.fxml");
-
+        Navigation.switchPaging(pagingPane, "registrationForm.fxml");
     }
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "admin/settingForm.fxml");
-
+        Navigation.switchPaging(pagingPane, "settingForm.fxml");
     }
 
     @FXML
     void btnStudentOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(pagingPane, "studentForm.fxml");
-
     }
 
     @FXML
     void btnUsersOnAction(ActionEvent event) {
         new Alert(Alert.AlertType.WARNING, "OOPS! You are not allowed to access this page! Only Admins.").show();
-
     }
 
     @Override

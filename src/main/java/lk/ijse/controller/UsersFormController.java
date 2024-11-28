@@ -13,7 +13,6 @@ import javafx.scene.layout.Pane;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.UserBO;
-import lk.ijse.tm.ProgramTM;
 import lk.ijse.tm.UserTM;
 import lk.ijse.util.Validation;
 
@@ -23,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminUsersFormController implements Initializable {
+public class UsersFormController implements Initializable {
 
     @FXML
     private Label userMobileValidate;

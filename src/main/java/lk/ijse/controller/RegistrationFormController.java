@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class AdminRegistrationFormController {
+public class RegistrationFormController {
 
     @FXML
     private JFXButton btnAddNewCourse;
