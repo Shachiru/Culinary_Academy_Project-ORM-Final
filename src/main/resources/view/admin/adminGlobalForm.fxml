@@ -186,17 +186,10 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                 </JFXButton>
-                <JFXButton fx:id="btnSettings" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnSettingsOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Settings" textFill="#0f0f19">
+                <JFXButton fx:id="btnSettings" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnSettingsOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Payment" textFill="#0f0f19">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0">
-                            <image>
-                                <Image url="@../../assets/icon/setting.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
                     <ripplerFill>
                         <LinearGradient endX="1.0" endY="1.0">
                             <stops>
@@ -216,6 +209,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../assets/icon/payment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                 </JFXButton>
                 <JFXButton fx:id="btnUsers" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnUsersOnAction" prefHeight="40.0" prefWidth="230.0" style="-fx-background-radius: 0 30 30 0; -fx-padding: 8 8 8 35; -fx-background-color: white;" text="   Users" textFill="#0f0f19">
                     <font>

@@ -60,7 +60,7 @@ public class UserGlobalFormController implements Initializable {
 
     @FXML
     void btnSettingsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "settingForm.fxml");
+        Navigation.switchPaging(pagingPane, "paymentForm.fxml");
     }
 
     @FXML
