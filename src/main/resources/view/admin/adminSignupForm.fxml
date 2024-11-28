@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: #a5e1f5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.admin.AdminSignupForm">
+   <children>
+      <ImageView fitHeight="200.0" fitWidth="150.0" layoutX="176.0" layoutY="98.0">
+         <image>
+            <Image url="@../../assets/img/Logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="107.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Signup Form">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <VBox layoutX="87.0" layoutY="339.0" prefHeight="200.0" prefWidth="327.0" spacing="15.0">
+         <children>
+            <TextField fx:id="txtAdminId" prefHeight="50.0" prefWidth="327.0" promptText="Enter Admin ID" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtUserName" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="327.0" promptText="Enter Admin Name" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtPassword" prefHeight="50.0" prefWidth="327.0" promptText="Enter Password" style="-fx-background-color: white; -fx-background-radius: 8;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </VBox>
+      <HBox layoutX="87.0" layoutY="545.0" prefHeight="50.0" prefWidth="327.0" spacing="12.0">
+         <children>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0f0f19; -fx-background-radius: 8;">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="34.0">
+                     <image>
+                        <Image url="@../../assets/icon/turn-back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <JFXButton fx:id="btnSignup" buttonType="RAISED" onAction="#btnSignupOnAction" prefHeight="51.0" prefWidth="327.0" style="-fx-background-color: #0f0f19; -fx-background-radius: 8;" text="Sign up" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="25.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

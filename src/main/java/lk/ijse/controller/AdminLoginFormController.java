@@ -57,5 +57,4 @@ public class AdminLoginFormController {
         btnBack.getScene().getWindow().hide();
         Navigation.changeStage("/view/mainForm.fxml", "Main Form");
     }
-
 }

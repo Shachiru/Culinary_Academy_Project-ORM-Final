@@ -77,8 +77,4 @@ public class AdminDashboardFormController implements Initializable {
     private void studentCount() {
         lblStudentCount.setText(String.valueOf(dashboardBO.studentCount()));
     }
-
-    public void stop() {
-        running = false; // Stop the loop
-    }
 }
