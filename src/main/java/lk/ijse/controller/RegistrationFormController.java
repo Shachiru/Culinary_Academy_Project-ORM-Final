@@ -1,25 +1,34 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import lk.ijse.dto.ProgramDTO;
+import lk.ijse.service.BOFactory;
+import lk.ijse.service.custom.ProgramBO;
+import lk.ijse.service.custom.RegisterBO;
 
-public class RegistrationFormController {
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-    @FXML
-    private JFXButton btnAddNewCourse;
+public class RegistrationFormController implements Initializable {
 
-    @FXML
-    private JFXButton btnAddNewStudent;
+    ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
+    RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegisterBO);
+
+    ProgramDTO programDTO;
 
     @FXML
     private JFXButton btnAddToCart;
@@ -34,13 +43,10 @@ public class RegistrationFormController {
     private Button btnStudentSearch;
 
     @FXML
-    private ComboBox<?> cmbSelectCourse;
+    private ComboBox<String> cmbSelectCourse;
 
     @FXML
     private TableColumn<?, ?> colAdvance;
-
-    @FXML
-    private TableColumn<?, ?> colBalance;
 
     @FXML
     private TableColumn<?, ?> colCourseFee;
@@ -52,7 +58,10 @@ public class RegistrationFormController {
     private TableColumn<?, ?> colPaymentDate;
 
     @FXML
-    private TableColumn<?, ?> colPurchaseId;
+    private TableColumn<?, ?> colRegistrationId;
+
+    @FXML
+    private TableColumn<?, ?> colRemainingFee;
 
     @FXML
     private TableColumn<?, ?> colRemove;
@@ -62,9 +71,6 @@ public class RegistrationFormController {
 
     @FXML
     private DatePicker dpDate;
-
-    @FXML
-    private Label lblNeedMoney;
 
     @FXML
     private Pane pagingPane;
@@ -79,9 +85,6 @@ public class RegistrationFormController {
     private TextField txtAvailableSeats;
 
     @FXML
-    private TextField txtBalance;
-
-    @FXML
     private TextField txtCourseFee;
 
     @FXML
@@ -91,16 +94,7 @@ public class RegistrationFormController {
     private TextField txtDuration;
 
     @FXML
-    private TextField txtPaymentAmount;
-
-    @FXML
-    private TextField txtPaymentBalance;
-
-    @FXML
-    private TextField txtPaymentTotal;
-
-    @FXML
-    private TextField txtPurchaseId;
+    private TextField txtRegistrationId;
 
     @FXML
     private TextField txtStudentContact;
@@ -115,13 +109,20 @@ public class RegistrationFormController {
     private TextField txtStudentName;
 
     @FXML
-    void btnAddNewCourseOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddNewStudentOnAction(ActionEvent event) {
-
+    void cmbSelectCourseOnAction(ActionEvent event) {
+        try {
+            programDTO = programBO.searchProgram(cmbSelectCourse.getValue());
+            if (programDTO != null) {
+                txtCourseId.setText(programDTO.getId());
+                txtCourseFee.setText(String.valueOf(programDTO.getFee()));
+                txtDuration.setText(String.valueOf(programDTO.getDuration()));
+                txtAvailableSeats.setText(String.valueOf(programDTO.getSeats()));
+            } else {
+                System.out.println("Program not found");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -144,9 +145,30 @@ public class RegistrationFormController {
 
     }
 
-    @FXML
-    void lblNeedMoneyOnAction(MouseEvent event) {
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadAllPrograms();
+        generateNextRegistrationId();
     }
 
+    private void generateNextRegistrationId() {
+        try{
+            txtRegistrationId.setText(registerBO.generateNextRegId());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void loadAllPrograms() {
+        ObservableList<String> programs = FXCollections.observableArrayList();
+        try {
+            ArrayList<ProgramDTO> allPrograms = programBO.getAllPrograms();
+            for (ProgramDTO program : allPrograms) {
+                programs.add(program.getName());
+            }
+            cmbSelectCourse.setItems(programs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

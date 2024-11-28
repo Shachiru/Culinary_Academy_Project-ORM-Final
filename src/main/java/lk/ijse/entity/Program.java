@@ -16,18 +16,18 @@ import javax.persistence.*;
 @Table(name = "Program")
 public class Program {
     @Id
-    @Column(name = "id")
+    @Column(name = "program_id")
     private String id;
 
-    @Column(name = "name")
+    @Column(name = "program_name")
     private String name;
 
-    @Column(name = "seats")
+    @Column(name = "program_seats")
     private String seats;
 
-    @Column(name = "duration")
+    @Column(name = "program_duration")
     private String duration;
 
-    @Column(name = "fee")
+    @Column(name = "program_fee")
     private double fee;
 }

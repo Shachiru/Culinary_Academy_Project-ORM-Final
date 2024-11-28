@@ -26,8 +26,8 @@ public class BOFactory {
                 return (T) new UserBOImpl();
             case DashboardBO:
                 return (T) new DashboardBOImpl();
-            case RegisterBO:
-                return (T) new RegisterBOImpl();
+           /* case RegisterBO:
+                return (T) new RegisterBOImpl();*/
             default:
                 return null;
         }

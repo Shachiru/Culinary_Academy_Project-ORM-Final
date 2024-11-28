@@ -6,11 +6,13 @@ import lk.ijse.entity.Program;
 import lk.ijse.repository.DAOFactory;
 import lk.ijse.repository.custom.ProgramDAO;
 import lk.ijse.service.custom.ProgramBO;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProgramBOImpl implements ProgramBO {
 
@@ -113,6 +115,29 @@ public class ProgramBOImpl implements ProgramBO {
     public String generateNextProgramId() throws Exception {
         String lastId = programDAO.getLastId();
         return incrementId(lastId);
+    }
+
+    @Override
+    public ProgramDTO searchProgram(String value) throws SQLException, ClassNotFoundException {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+       try{
+           Query<Program> query = session.createQuery("FROM Program WHERE id = :id OR name = :name");
+           query.setParameter("id", value);
+           List<Program> results = query.list();
+           if (!results.isEmpty()){
+               Program program = results.get(0);
+               return new ProgramDTO(
+                       program.getId(),
+                       program.getName(),
+                       program.getSeats(),
+                       program.getDuration(),
+                       program.getFee()
+               );
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       return null;
     }
 
     private String incrementId(String lastId) {

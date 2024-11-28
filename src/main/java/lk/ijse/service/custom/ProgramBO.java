@@ -19,4 +19,6 @@ public interface ProgramBO extends SuperBO {
     ArrayList<String> loadIds() throws SQLException;
 
     String generateNextProgramId() throws Exception;
+
+    ProgramDTO searchProgram(String value) throws SQLException, ClassNotFoundException;
 }

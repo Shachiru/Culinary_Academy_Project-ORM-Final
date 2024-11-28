@@ -16,19 +16,19 @@ import javax.persistence.*;
 @Table(name = "Student")
 public class Student {
     @Id
-    @Column(name = "id")
+    @Column(name = "student_id")
     private String id;
 
-    @Column(name = "name")
+    @Column(name = "student_name")
     private String name;
 
-    @Column(name = "address")
+    @Column(name = "student_address")
     private String address;
 
-    @Column(name = "contact")
+    @Column(name = "student_contact")
     private String contact;
 
-    @Column(name = "email")
+    @Column(name = "student_email")
     private String email;
 
 }

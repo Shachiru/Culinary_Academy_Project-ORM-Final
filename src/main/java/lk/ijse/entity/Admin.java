@@ -19,13 +19,13 @@ import java.util.List;
 public class Admin {
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)       // get error in hibernate (not load db table)because of this
-    @Column(name = "id")
+    @Column(name = "admin_id")
     private String id;
 
-    @Column(name = "name")
+    @Column(name = "admin_name")
     private String name;
 
-    @Column(name = "password")
+    @Column(name = "admin_password")
     private String password;
 
 //    @OneToMany(mappedBy = "admin")

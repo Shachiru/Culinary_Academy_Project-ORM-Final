@@ -87,4 +87,14 @@ public class ProgramDAOImpl implements ProgramDAO {
             return 0;
         }
     }
+
+    @Override
+    public Program search(String id) throws Exception {
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            return session.get(Program.class, id);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

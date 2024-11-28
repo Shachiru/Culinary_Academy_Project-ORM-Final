@@ -36,18 +36,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="36.0" prefWidth="809.0" />
-                  <JFXButton fx:id="btnAddNewCourse" alignment="CENTER" buttonType="RAISED" onAction="#btnAddNewCourseOnAction" prefHeight="37.0" prefWidth="153.0" ripplerFill="WHITE" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="ADD New Course" textFill="#f7ffff">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </HBox.margin>
-                  </JFXButton>
+                  <Region prefHeight="36.0" prefWidth="962.0" />
                </children>
                <padding>
                   <Insets left="12.0" />
@@ -55,7 +44,7 @@
             </HBox>
             <HBox prefHeight="50.0" prefWidth="1190.0" spacing="12.0" style="-fx-background-color: #ebf5ff;">
                <children>
-                  <ComboBox fx:id="cmbSelectCourse" prefHeight="43.0" prefWidth="184.0" promptText="Select Course" style="-fx-font-size: 14; -fx-font-weight: bold;" HBox.hgrow="ALWAYS">
+                  <ComboBox fx:id="cmbSelectCourse" onAction="#cmbSelectCourseOnAction" prefHeight="43.0" prefWidth="184.0" promptText="Select Course" style="-fx-font-size: 14; -fx-font-weight: bold;" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
@@ -102,18 +91,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="40.0" prefWidth="806.0" />
-                  <JFXButton fx:id="btnAddNewStudent" alignment="CENTER" buttonType="RAISED" onAction="#btnAddNewStudentOnAction" prefHeight="37.0" prefWidth="153.0" ripplerFill="WHITE" style="-fx-background-color: #233449; -fx-background-radius: 8;" text="ADD New Student" textFill="#f7ffff">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </HBox.margin>
-                  </JFXButton>
+                  <Region prefHeight="40.0" prefWidth="955.0" />
                </children>
                <padding>
                   <Insets left="12.0" />
@@ -168,12 +146,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1190.0">
                <children>
-                  <Label prefHeight="36.0" prefWidth="185.0" text="Perchase Details">
+                  <Label prefHeight="36.0" prefWidth="237.0" text="Registraion Details">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="40.0" prefWidth="950.0" />
+                  <Region prefHeight="42.0" prefWidth="895.0" />
                </children>
                <padding>
                   <Insets left="12.0" />
@@ -181,7 +159,7 @@
             </HBox>
             <HBox prefHeight="50.0" prefWidth="1190.0" spacing="12.0" style="-fx-background-color: #ebf5ff;">
                <children>
-                  <TextField fx:id="txtPurchaseId" prefHeight="26.0" prefWidth="161.0" promptText="Purchase ID">
+                  <TextField fx:id="txtRegistrationId" prefHeight="26.0" prefWidth="161.0" promptText="Registration ID">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -191,11 +169,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtBalance" prefHeight="26.0" prefWidth="357.0" promptText="Balance">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
+                  <Region prefHeight="26.0" prefWidth="358.0" />
                   <DatePicker fx:id="dpDate" prefHeight="25.0" prefWidth="242.0" />
                </children>
                <padding>
@@ -229,51 +203,21 @@
          <content>
             <TableView fx:id="tblAddToCart" prefHeight="200.0" prefWidth="1175.0">
               <columns>
-                <TableColumn fx:id="colPurchaseId" prefWidth="116.0" text="Purchase ID" />
-                <TableColumn fx:id="colStudentId" prefWidth="105.0" text="Student ID" />
-                  <TableColumn fx:id="colCourseId" minWidth="4.0" prefWidth="114.0" text="Course ID" />
-                  <TableColumn fx:id="colCourseFee" prefWidth="179.0" text="Course Fee" />
-                  <TableColumn fx:id="colAdvance" prefWidth="187.0" text="Advance" />
-                  <TableColumn fx:id="colBalance" prefWidth="170.0" text="Balance" />
-                  <TableColumn fx:id="colPaymentDate" prefWidth="192.0" text="Payment Date" />
-                  <TableColumn fx:id="colRemove" prefWidth="111.0" text="Remove" />
+                <TableColumn fx:id="colRegistrationId" prefWidth="116.0" text="Registration ID" />
+                <TableColumn fx:id="colStudentId" prefWidth="125.0" text="Student ID" />
+                  <TableColumn fx:id="colCourseId" minWidth="0.0" prefWidth="124.0" text="Course ID" />
+                  <TableColumn fx:id="colCourseFee" prefWidth="147.0" text="Course Fee" />
+                  <TableColumn fx:id="colAdvance" prefWidth="182.0" text="Advance" />
+                  <TableColumn fx:id="colRemainingFee" prefWidth="175.0" text="Remaining Fee" />
+                  <TableColumn fx:id="colPaymentDate" prefWidth="188.0" text="Payment Date" />
+                  <TableColumn fx:id="colRemove" prefWidth="117.0" text="Remove" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
       <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="809.0" prefHeight="50.0" prefWidth="1190.0" spacing="20.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text="Total :">
-                     <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPaymentTotal" prefHeight="34.0" prefWidth="100.0" />
-               </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="158.0">
-               <children>
-                  <Label prefHeight="20.0" prefWidth="133.0" text="Payment Amount :">
-                     <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPaymentAmount" prefHeight="33.0" prefWidth="158.0" />
-               </children>
-            </VBox>
-            <VBox layoutX="130.0" layoutY="10.0" prefHeight="50.0" prefWidth="158.0">
-               <children>
-                  <Label prefHeight="20.0" prefWidth="133.0" text="Balance Amount :">
-                     <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPaymentBalance" prefHeight="41.0" prefWidth="158.0" />
-               </children>
-            </VBox>
-            <Region prefHeight="50.0" prefWidth="569.0" />
+            <Region prefHeight="50.0" prefWidth="1039.0" />
             <JFXButton fx:id="btnBuyCourse" buttonType="RAISED" onAction="#btnBuyCourseOnAction" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #1a53ed; -fx-background-radius: 8;" text="BUY COURSE" textFill="WHITE">
                <HBox.margin>
                   <Insets />
@@ -284,10 +228,5 @@
             </JFXButton>
          </children>
       </HBox>
-      <Label fx:id="lblNeedMoney" layoutX="234.0" layoutY="866.0" onDragDetected="#lblNeedMoneyOnAction" prefHeight="17.0" prefWidth="100.0" text="NEED MONEY" textFill="RED">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
     </children>
 </Pane>
