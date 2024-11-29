@@ -44,8 +44,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public ArrayList<String> loadIds() throws SQLException {
-        String sql = "SELECT U.id FROM User AS U";
-        Query query = session.createQuery(sql);
+        String hql = "SELECT U.id FROM User AS U";
+        Query query = session.createQuery(hql);
         List list = query.list();
         return (ArrayList<String>) list;
     }
@@ -63,8 +63,8 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public String getLastId() throws Exception {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            String sql = "SELECT U.id FROM User AS U ORDER BY U.id DESC";
-            Query<String> query = session.createQuery(sql, String.class);
+            String hql = "SELECT U.id FROM User AS U ORDER BY U.id DESC";
+            Query<String> query = session.createQuery(hql, String.class);
             query.setMaxResults(1);
             return query.uniqueResult();
         } catch (Exception e) {
@@ -75,8 +75,8 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public String generateNextId() {
-        String sql = "SELECT U.id FROM User AS U ORDER BY U.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT U.id FROM User AS U ORDER BY U.id DESC";
+        Query idquery = session.createQuery(hql);
         String userId = (String) idquery.setMaxResults(1).uniqueResult();
         return userId;
     }

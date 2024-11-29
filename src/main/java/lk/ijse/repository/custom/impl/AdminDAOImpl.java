@@ -22,8 +22,8 @@ public class AdminDAOImpl implements AdminDAO {
 
     @Override
     public String generateNextId() {
-        String sql = "SELECT A.id FROM Admin AS A ORDER BY A.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT A.id FROM Admin AS A ORDER BY A.id DESC";
+        Query idquery = session.createQuery(hql);
         String adminId = (String) idquery.setMaxResults(1).uniqueResult();
         return adminId;
     }

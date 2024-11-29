@@ -14,8 +14,8 @@ public class RegisterDAOImpl implements RegisterDAO {
 
     @Override
     public String generateNextRegId() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT R.id FROM Register AS R ORDER BY R.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT R.id FROM Register AS R ORDER BY R.id DESC";
+        Query idquery = session.createQuery(hql);
         String regId = (String) idquery.setMaxResults(1).uniqueResult();
         return regId;
     }

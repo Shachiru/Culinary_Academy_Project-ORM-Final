@@ -44,8 +44,8 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public ArrayList<String> loadIds() throws SQLException {
-        String sql = "SELECT P.id FROM Program AS P";
-        Query query = session.createQuery(sql);
+        String hql = "SELECT P.id FROM Program AS P";
+        Query query = session.createQuery(hql);
         List list = query.list();
         return (ArrayList<String>) list;
     }
@@ -58,8 +58,8 @@ public class ProgramDAOImpl implements ProgramDAO {
     @Override
     public String getLastId() throws Exception {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
-            Query<String> query = session.createQuery(sql, String.class);
+            String hql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+            Query<String> query = session.createQuery(hql, String.class);
             query.setMaxResults(1);
             return query.uniqueResult();
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public String generateNextId() {
-        String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+        Query idquery = session.createQuery(hql);
         String programId = (String) idquery.setMaxResults(1).uniqueResult();
         return programId;
     }
 
     @Override
     public int programCount() {
-        String sql = "SELECT COUNT(P.id) FROM Program AS P";
-        Query query = session.createQuery(sql, Long.class);
+        String hql = "SELECT COUNT(P.id) FROM Program AS P";
+        Query query = session.createQuery(hql, Long.class);
         Long count = (Long) query.getSingleResult();
         if (count != null) {
             return Math.toIntExact(count);

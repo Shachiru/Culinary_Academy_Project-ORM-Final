@@ -97,8 +97,8 @@ public class StudentDAOImpl implements StudentDAO {
     public Student searchById(String id) throws Exception {
         Session session = SessionFactoryConfig.getInstance().getSession();
         try {
-            String sql = "SELECT S FROM Student AS S WHERE S.id = :id";
-            Query<Student> query = session.createQuery(sql, Student.class);
+            String hql = "SELECT S FROM Student AS S WHERE S.id = :id";
+            Query<Student> query = session.createQuery(hql, Student.class);
             query.setParameter("id", id);
             return query.uniqueResult();
         } catch (Exception e) {
@@ -112,8 +112,8 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean checkStudent(String id) {
         try {
-            String sql = "FROM Student AS S WHERE S.id = :id";
-            Query<Student> query = session.createQuery(sql, Student.class);
+            String hql = "FROM Student AS S WHERE S.id = :id";
+            Query<Student> query = session.createQuery(hql, Student.class);
             query.setParameter("id", id);
             return query.uniqueResult() != null;
         } catch (Exception e) {
