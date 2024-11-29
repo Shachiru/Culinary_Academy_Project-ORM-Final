@@ -27,7 +27,7 @@ public class Validation {
     }
 
     public static boolean nameValidate(String name) {
-        String nameRegex = "^[A-z\\s]{4,15}$";
+        String nameRegex = "^[A-Za-z& ]+$";
         Pattern pattern = Pattern.compile(nameRegex);
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();

@@ -256,9 +256,9 @@ public class RegistrationFormController implements Initializable {
             txtCourseFee.clear();
             txtDuration.clear();
             txtAvailableSeats.clear();
-            txtRegistrationId.clear();
             txtStudentContact.clear();
             txtStudentEmail.clear();
+            txtAdvancePayment.clear();
             txtStudentId.clear();
             txtStudentName.clear();
             cmbSelectCourse.getSelectionModel().clearSelection();
