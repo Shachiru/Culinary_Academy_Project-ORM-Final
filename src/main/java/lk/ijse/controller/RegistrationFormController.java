@@ -118,11 +118,15 @@ public class RegistrationFormController implements Initializable {
         loadAllPrograms();
         generateNextRegistrationId();
         setCellValueFactory();
+
         cmbSelectCourse.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
             }
         });
+
+        txtAdvancePayment.textProperty().addListener((observable, oldValue, newValue) -> calculateRemainingFee());
     }
+
 
     private void setCellValueFactory() {
         colRegistrationId.setCellValueFactory(new PropertyValueFactory<>("registrationId"));
@@ -161,6 +165,7 @@ public class RegistrationFormController implements Initializable {
             new Alert(Alert.AlertType.WARNING, "Please fill all the required fields.").show();
             return;
         }
+        calculateRemainingFee();
 
         try {
             String registrationId = txtRegistrationId.getText();
@@ -197,6 +202,7 @@ public class RegistrationFormController implements Initializable {
         }
     }
 
+
     private void clearInputFields() {
         txtCourseId.clear();
         txtCourseFee.clear();
@@ -211,6 +217,26 @@ public class RegistrationFormController implements Initializable {
         cmbSelectCourse.getSelectionModel().clearSelection();
     }
 
+    private void calculateRemainingFee() {
+        try {
+            if (!txtCourseFee.getText().isEmpty() && !txtAdvancePayment.getText().isEmpty()) {
+                double courseFee = Double.parseDouble(txtCourseFee.getText());
+                double advancePayment = Double.parseDouble(txtAdvancePayment.getText());
+                double remainingFee = courseFee - advancePayment;
+
+                if (remainingFee < 0) {
+                    new Alert(Alert.AlertType.WARNING, "Advance payment cannot exceed course fee!").show();
+                    txtAdvancePayment.clear();
+                    txtRemainFee.clear();
+                } else {
+                    txtRemainFee.setText(String.format("%.2f", remainingFee));
+                }
+            }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid number format. Please check the inputs.").show();
+            txtRemainFee.clear();
+        }
+    }
 
     @FXML
     void btnBuyCourseOnAction(ActionEvent event) {

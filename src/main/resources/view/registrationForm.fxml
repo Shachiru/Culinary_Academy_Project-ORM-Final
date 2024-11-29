@@ -215,12 +215,20 @@
       </ScrollPane>
       <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="809.0" prefHeight="50.0" prefWidth="1190.0" spacing="20.0">
          <children>
-            <TextField fx:id="txtRemainFee" prefHeight="27.0" prefWidth="305.0" promptText="Remaining Fee">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance :">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="txtRemainFee" prefHeight="27.0" prefWidth="164.0" promptText="Remaining Fee">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </TextField>
-            <Region prefHeight="50.0" prefWidth="722.0" />
+            <Region prefHeight="50.0" prefWidth="863.0" />
             <JFXButton fx:id="btnBuyCourse" buttonType="RAISED" onAction="#btnBuyCourseOnAction" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #1a53ed; -fx-background-radius: 8;" text="Register" textFill="WHITE">
                <HBox.margin>
                   <Insets />
