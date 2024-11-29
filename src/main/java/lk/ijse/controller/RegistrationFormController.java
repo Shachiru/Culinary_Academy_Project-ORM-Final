@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import lk.ijse.dto.ProgramDTO;
@@ -18,18 +20,16 @@ import lk.ijse.service.custom.RegisterBO;
 import lk.ijse.service.custom.StudentBO;
 import lk.ijse.tm.AddToCartTM;
 
+import java.awt.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class RegistrationFormController implements Initializable {
-
-    ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
-    RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegisterBO);
 
     @FXML
     private JFXButton btnAddToCart;
@@ -56,13 +56,7 @@ public class RegistrationFormController implements Initializable {
     private TableColumn<?, ?> colCourseId;
 
     @FXML
-    private TableColumn<?, ?> colPaymentDate;
-
-    @FXML
     private TableColumn<?, ?> colRegistrationId;
-
-    @FXML
-    private TableColumn<?, ?> colRemainingFee;
 
     @FXML
     private TableColumn<?, ?> colRemove;
@@ -77,7 +71,7 @@ public class RegistrationFormController implements Initializable {
     private Pane pagingPane;
 
     @FXML
-    private TableView<?> tblAddToCart;
+    private TableView<AddToCartTM> tblAddToCart;
 
     @FXML
     private TextField txtAdvancePayment;
@@ -109,8 +103,15 @@ public class RegistrationFormController implements Initializable {
     @FXML
     private TextField txtStudentName;
 
+    @FXML
+    private TextField txtRemainFee;
+
+    ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
+    RegisterBO registerBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegisterBO);
     StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.StudentBO);
+
     private ObservableList<AddToCartTM> addToCartList = FXCollections.observableArrayList();
+    private double netPayment = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -129,10 +130,9 @@ public class RegistrationFormController implements Initializable {
         colCourseId.setCellValueFactory(new PropertyValueFactory<>("courseId"));
         colCourseFee.setCellValueFactory(new PropertyValueFactory<>("courseFee"));
         colAdvance.setCellValueFactory(new PropertyValueFactory<>("advance"));
-        colRemainingFee.setCellValueFactory(new PropertyValueFactory<>("remainingFee"));
-        colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
         colRemove.setCellValueFactory(new PropertyValueFactory<>("remove"));
     }
+
 
     @FXML
     void cmbSelectCourseOnAction(ActionEvent event) throws SQLException {
@@ -152,89 +152,65 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        /*try {
+        if (txtRegistrationId.getText().isEmpty() ||
+                txtStudentId.getText().isEmpty() ||
+                txtCourseId.getText().isEmpty() ||
+                txtCourseFee.getText().isEmpty() ||
+                txtAdvancePayment.getText().isEmpty()) {
+
+            new Alert(Alert.AlertType.WARNING, "Please fill all the required fields.").show();
+            return;
+        }
+
+        try {
             String registrationId = txtRegistrationId.getText();
             String studentId = txtStudentId.getText();
             String courseId = txtCourseId.getText();
-            String courseFee = txtCourseFee.getText();
-            double advance = Double.parseDouble(txtAdvancePayment.getText());
+            double courseFee = Double.parseDouble(txtCourseFee.getText());
+            double advancePayment = Double.parseDouble(txtAdvancePayment.getText());
 
-            LocalDate paymentDate = dpDate.getValue();
-            java.sql.Date registerDate = java.sql.Date.valueOf(paymentDate);
+            JFXButton removeButton = new JFXButton("Remove");
+            removeButton.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+            removeButton.setCursor(Cursor.HAND);
 
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(registerDate);
-            calendar.add(Calendar.MONTH, 3);
-            java.sql.Date expiredDate = new java.sql.Date(calendar.getTimeInMillis());
-
-            JFXButton btnRemove = new JFXButton("Remove");
-            btnRemove.setCursor(Cursor.HAND);
-            btnRemove.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 14px;");
-
-            btnRemove.setOnAction(e -> {
-                int selectedIndex = tblAddToCart.getSelectionModel().getSelectedIndex();
-                if (selectedIndex >= 0) {
-                    ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-                    ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-                    Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure to remove this item?", yes, no).showAndWait();
-
-                    if (result.orElse(no) == yes) {
-                        addToCartList.remove(selectedIndex);
-                        tblAddToCart.refresh();
-                        calculateTotalAmount();
-                        calculateCustomerPaymentBalanceAmount();
-                    }
-                } else {
-                    new Alert(Alert.AlertType.WARNING, "No item selected to remove!").show();
-                }
-            });
-            for (AddToCartTM item : addToCartList) {
-                if (item.getProgram_id() != null && item.getProgram_id().equals(courseId)) {
-                    new Alert(Alert.AlertType.WARNING, "This course is already added to the cart!").show();
-                    return;
-                }
-            }
-            AddToCartTM addToCartTM = new AddToCartTM(
+            AddToCartTM addToCartItem = new AddToCartTM(
                     registrationId,
                     studentId,
                     courseId,
                     courseFee,
-                    advance,
-                    Double.parseDouble(courseFee) - Double.parseDouble(advance),
-                    registerDate,
-                    btnRemove
+                    advancePayment,
+                    removeButton
             );
 
-            addToCartList.add(addToCartTM);
+            addToCartList.add(addToCartItem);
+
             tblAddToCart.setItems(addToCartList);
-            tblAddToCart.refresh();
-            calculateTotalAmount();
-            calculateCustomerPaymentBalanceAmount();
-        }catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Error occurred while adding to cart").show();
-        }*/
+
+            removeButton.setOnAction(e -> {
+                addToCartList.remove(addToCartItem);
+                tblAddToCart.refresh();
+            });
+            clearInputFields();
+
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid number format. Please check the input values.").show();
+        }
     }
 
-    /*private void calculateCustomerPaymentBalanceAmount() {
-        String paymentText = txtCustomerPaymentAmount.getText();
-        String totalText = txtTotalAmount.getText();
+    private void clearInputFields() {
+        txtCourseId.clear();
+        txtCourseFee.clear();
+        txtAdvancePayment.clear();
+        txtRegistrationId.clear();
+        txtStudentId.clear();
+        txtStudentName.clear();
+        txtStudentEmail.clear();
+        txtStudentContact.clear();
+        txtDuration.clear();
+        txtAvailableSeats.clear();
+        cmbSelectCourse.getSelectionModel().clearSelection();
+    }
 
-        if (!paymentText.isEmpty() && !totalText.isEmpty()) {
-            double payment = Double.parseDouble(paymentText);
-            double total = Double.parseDouble(totalText);
-            double balance = payment - total;
-
-            txtCustomerPaymentBalance.setText(String.format("%.2f", balance));
-        }
-    }*/
-
-    /*private void calculateTotalAmount() {
-        double total = 0.0;
-        for (AddToCartTM course : addToCartList) {
-            total += course.getAdvanceAmount();
-        }
-        txtTotalAmount.setText(String.format("%.2f", total));
-    }*/
 
     @FXML
     void btnBuyCourseOnAction(ActionEvent event) {

@@ -164,12 +164,12 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtAdvancePayment" prefHeight="26.0" prefWidth="345.0" promptText="Advance Payment">
+                  <TextField fx:id="txtAdvancePayment" prefHeight="26.0" prefWidth="233.0" promptText="Advance Payment">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <Region prefHeight="26.0" prefWidth="358.0" />
+                  <Region prefHeight="26.0" prefWidth="473.0" />
                   <DatePicker fx:id="dpDate" prefHeight="25.0" prefWidth="242.0" />
                </children>
                <padding>
@@ -178,7 +178,7 @@
             </HBox>
             <HBox layoutX="22.0" layoutY="72.0" prefHeight="42.0" prefWidth="1166.0" spacing="12.0" style="-fx-background-color: white;">
                <children>
-                  <Region prefHeight="30.0" prefWidth="877.0" />
+                  <Region prefHeight="30.0" prefWidth="875.0" />
                   <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="232.0" layoutY="20.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #233449; -fx-background-radius: 9;" text="Clear" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -203,22 +203,25 @@
          <content>
             <TableView fx:id="tblAddToCart" prefHeight="200.0" prefWidth="1175.0">
               <columns>
-                <TableColumn fx:id="colRegistrationId" prefWidth="116.0" text="Registration ID" />
-                <TableColumn fx:id="colStudentId" prefWidth="125.0" text="Student ID" />
-                  <TableColumn fx:id="colCourseId" minWidth="0.0" prefWidth="124.0" text="Course ID" />
-                  <TableColumn fx:id="colCourseFee" prefWidth="147.0" text="Course Fee" />
-                  <TableColumn fx:id="colAdvance" prefWidth="182.0" text="Advance" />
-                  <TableColumn fx:id="colRemainingFee" prefWidth="175.0" text="Remaining Fee" />
-                  <TableColumn fx:id="colPaymentDate" prefWidth="188.0" text="Payment Date" />
-                  <TableColumn fx:id="colRemove" prefWidth="117.0" text="Remove" />
+                <TableColumn fx:id="colRegistrationId" prefWidth="142.0" text="Registration ID" />
+                <TableColumn fx:id="colStudentId" prefWidth="205.0" text="Student ID" />
+                  <TableColumn fx:id="colCourseId" minWidth="0.0" prefWidth="196.0" text="Course ID" />
+                  <TableColumn fx:id="colCourseFee" prefWidth="195.0" text="Course Fee" />
+                  <TableColumn fx:id="colAdvance" prefWidth="230.0" text="Advance" />
+                  <TableColumn fx:id="colRemove" prefWidth="206.0" text="Remove" />
               </columns>
             </TableView>
          </content>
       </ScrollPane>
       <HBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="809.0" prefHeight="50.0" prefWidth="1190.0" spacing="20.0">
          <children>
-            <Region prefHeight="50.0" prefWidth="1039.0" />
-            <JFXButton fx:id="btnBuyCourse" buttonType="RAISED" onAction="#btnBuyCourseOnAction" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #1a53ed; -fx-background-radius: 8;" text="BUY COURSE" textFill="WHITE">
+            <TextField fx:id="txtRemainFee" prefHeight="27.0" prefWidth="305.0" promptText="Remaining Fee">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </TextField>
+            <Region prefHeight="50.0" prefWidth="722.0" />
+            <JFXButton fx:id="btnBuyCourse" buttonType="RAISED" onAction="#btnBuyCourseOnAction" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #1a53ed; -fx-background-radius: 8;" text="Register" textFill="WHITE">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
