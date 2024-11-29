@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProgramDTO {
-    private String id;
+    private String pId;
     private String name;
     private String seats;
     private String duration;
@@ -17,7 +17,7 @@ public class ProgramDTO {
 
     public Program toEntity() {
         Program program = new Program();
-        program.setId(this.id);
+        program.setPId(this.pId);
         program.setName(this.name);
         program.setSeats(this.seats);
         program.setDuration(this.duration);

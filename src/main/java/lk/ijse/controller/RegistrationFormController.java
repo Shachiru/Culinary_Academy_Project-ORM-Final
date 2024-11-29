@@ -65,9 +65,6 @@ public class RegistrationFormController implements Initializable {
     private TableColumn<?, ?> colStudentId;
 
     @FXML
-    private DatePicker dpDate;
-
-    @FXML
     private Pane pagingPane;
 
     @FXML
@@ -146,7 +143,7 @@ public class RegistrationFormController implements Initializable {
             ProgramDTO programDTO = programBO.searchProgramByName(selectedCourse);
             if (programDTO != null) {
 
-                txtCourseId.setText(programDTO.getId());
+                txtCourseId.setText(programDTO.getPId());
                 txtCourseFee.setText(String.valueOf(programDTO.getFee()));
                 txtDuration.setText(programDTO.getDuration());
                 txtAvailableSeats.setText(programDTO.getSeats());

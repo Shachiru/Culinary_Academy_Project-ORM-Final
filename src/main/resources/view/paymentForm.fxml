@@ -22,12 +22,12 @@
                 <Font name="System Bold" size="50.0" />
             </font>
         </Text>
-      <TextField fx:id="txtPaymentId" layoutX="154.0" layoutY="184.0" prefHeight="50.0" prefWidth="198.0" promptText="Payment ID">
+      <TextField fx:id="txtPaymentId" layoutX="145.0" layoutY="184.0" prefHeight="50.0" prefWidth="276.0" promptText="Payment ID" style="-fx-background-radius: 8;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAmount" layoutX="154.0" layoutY="296.0" prefHeight="50.0" prefWidth="276.0" promptText="Amount">
+      <TextField fx:id="txtAmount" layoutX="145.0" layoutY="296.0" prefHeight="50.0" prefWidth="276.0" promptText="Amount" style="-fx-background-radius: 8;">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
@@ -35,8 +35,8 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cmbRegisterID" layoutX="623.0" layoutY="184.0" onAction="#cmbRegisterIdOnAction" prefHeight="50.0" prefWidth="276.0" />
-      <DatePicker fx:id="dpDate" layoutX="623.0" layoutY="309.0" prefHeight="37.0" prefWidth="276.0" />
+      <ComboBox fx:id="cmbRegisterID" layoutX="623.0" layoutY="184.0" onAction="#cmbRegisterIdOnAction" prefHeight="50.0" prefWidth="276.0" style="-fx-background-radius: 8;" />
+      <DatePicker fx:id="dpDate" layoutX="623.0" layoutY="296.0" prefHeight="37.0" prefWidth="276.0" />
       <TableView fx:id="tblPayment" layoutX="154.0" layoutY="472.0" prefHeight="351.0" prefWidth="1061.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="197.6000213623047" text="Payment Id" />

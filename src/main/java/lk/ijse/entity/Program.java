@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Program {
     @Id
     @Column(name = "program_id")
-    private String id;
+    private String pId;
 
     @Column(name = "program_name")
     private String name;

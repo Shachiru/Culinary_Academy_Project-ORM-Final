@@ -145,7 +145,7 @@ public class ProgramFormController implements Initializable {
     void btnDeleteOnAction(ActionEvent event) throws Exception {
         String id = txtProgramId.getText();
         ProgramDTO programDTO = new ProgramDTO();
-        programDTO.setId(id);
+        programDTO.setPId(id);
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Program");
@@ -170,7 +170,7 @@ public class ProgramFormController implements Initializable {
             List<ProgramDTO> list = programBO.getAllPrograms();
             for (ProgramDTO dto : list) {
                 ProgramTM programTM = new ProgramTM(
-                        dto.getId(),
+                        dto.getPId(),
                         dto.getName(),
                         dto.getSeats(),
                         dto.getDuration(),

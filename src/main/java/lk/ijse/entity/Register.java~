@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,10 +21,15 @@ public class Register {
     @Column(name = "reg_id")
     private String reg_id;
 
-    @Column(name = "register_date")
+    @CreationTimestamp
     private LocalDate reg_date;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    private Student student;
+    private Student sId;
+
+    @ManyToOne
+    @JoinColumn(name = "program_id")
+    private Program pId;
+
 }

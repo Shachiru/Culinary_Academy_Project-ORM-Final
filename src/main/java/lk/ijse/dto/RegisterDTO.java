@@ -16,6 +16,6 @@ public class RegisterDTO {
     private String reg_id;
     private LocalDate reg_date;
     private Student student_id;
-    private Program program_id;
+    private Program pId;
 
 }

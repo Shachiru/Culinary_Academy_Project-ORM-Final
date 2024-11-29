@@ -91,7 +91,7 @@ public class ProgramBOImpl implements ProgramBO {
         ArrayList<ProgramDTO> programDTOS = new ArrayList<>();
         for (Program program : programs) {
             programDTOS.add(new ProgramDTO(
-                    program.getId(),
+                    program.getPId(),
                     program.getName(),
                     program.getSeats(),
                     program.getDuration(),
@@ -125,7 +125,7 @@ public class ProgramBOImpl implements ProgramBO {
         session.close();
         if (program != null) {
             return new ProgramDTO(
-                    program.getId(),
+                    program.getPId(),
                     program.getName(),
                     program.getSeats(),
                     program.getDuration(),
